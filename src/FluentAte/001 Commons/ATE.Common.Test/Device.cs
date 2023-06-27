@@ -14,10 +14,5 @@ namespace ATE.Common.Test
 
         public string Description { get; set; }
 
-        public Device()
-        {
-            
-        }
-
     }
 }
