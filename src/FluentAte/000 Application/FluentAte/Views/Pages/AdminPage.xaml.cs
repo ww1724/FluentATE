@@ -1,6 +1,7 @@
 ﻿using FluentAte.ViewModels.Pages;
 using FluentAte.Views.Pages.Admin;
 using System;
+using System.Windows;
 using Wpf.Ui.Controls.Navigation;
 
 namespace FluentAte.Views.Pages
@@ -24,6 +25,16 @@ namespace FluentAte.Views.Pages
             NavigationView.SetServiceProvider(serviceProvider);
             NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(HomePage));
 
+        }
+
+        private void OnNavigationSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender is not Wpf.Ui.Controls.Navigation.NavigationView navigationView)
+                return;
+
+            NavigationView.HeaderVisibility = navigationView.SelectedItem?.TargetPageType != typeof(DashboardPage)
+                ? Visibility.Visible
+                : Visibility.Collapsed;
         }
     }
 }

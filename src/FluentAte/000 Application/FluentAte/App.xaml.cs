@@ -49,6 +49,7 @@ namespace FluentAte
                 services.AddSingleton<DbService>();
                 // MyStores
                 services.AddSingleton<TestStore>();
+                services.AddSingleton<DeviceStore>();
 
                 // Main window with navigation
                 services.AddScoped<IWindow, Views.Windows.MainWindow>();

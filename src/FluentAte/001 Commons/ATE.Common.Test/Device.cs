@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATE.Common.Test
 {
-    public class Device
+    public interface IDevice
     {
         public int Id { get; set; }
 

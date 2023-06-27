@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATE.Share", "001 Commons\AT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Ui", "006 3rdParties\Wpf.Ui\Wpf.Ui.csproj", "{ACD7B2CC-A8B7-4FE9-9558-228BE4ADD4F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentATE.DevicePackage.IOBoard", "004 Extensions\FluentATE.DevicePackage.IOBoard\FluentATE.DevicePackage.IOBoard.csproj", "{82161281-AB98-4715-8E02-2B10F28EC6A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{ACD7B2CC-A8B7-4FE9-9558-228BE4ADD4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACD7B2CC-A8B7-4FE9-9558-228BE4ADD4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACD7B2CC-A8B7-4FE9-9558-228BE4ADD4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82161281-AB98-4715-8E02-2B10F28EC6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82161281-AB98-4715-8E02-2B10F28EC6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82161281-AB98-4715-8E02-2B10F28EC6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82161281-AB98-4715-8E02-2B10F28EC6A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{610D3899-9489-43CC-B51B-D06C43D4EA9A} = {1B20FC22-AB62-46AA-8008-9D73657959F4}
 		{4DBE697A-860E-4881-AF0A-2DE56D5EFBEE} = {81F1D075-FF7D-4F87-ACBC-0909F4CBC6CE}
 		{ACD7B2CC-A8B7-4FE9-9558-228BE4ADD4F7} = {6856A401-2D69-4DB3-A52E-5212839A18C2}
+		{82161281-AB98-4715-8E02-2B10F28EC6A7} = {40A37B29-0779-4DE5-A59A-C8341D36D407}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {214348FF-0CD8-4BAE-BD97-17F33B189431}

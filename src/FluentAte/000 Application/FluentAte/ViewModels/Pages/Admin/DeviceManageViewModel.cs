@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using ATE.Share.Stores;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace FluentAte.ViewModels.Pages.Admin
 {
     public class DeviceManageViewModel : ObservableObject
     {
-        public DeviceManageViewModel()
+        public DeviceStore DeviceStore { get; set; }
+
+        public DeviceManageViewModel(DeviceStore deviceStore)
         {
-            
+            DeviceStore = deviceStore;
         }
     }
 }

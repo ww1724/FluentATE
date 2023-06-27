@@ -11,13 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controls\**" />
-    <EmbeddedResource Remove="Controls\**" />
-    <None Remove="Controls\**" />
-    <Page Remove="Controls\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
   </ItemGroup>
@@ -49,6 +42,11 @@
     <Compile Update="Views\Pages\AboutPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Styles\" />
   </ItemGroup>
 
 
