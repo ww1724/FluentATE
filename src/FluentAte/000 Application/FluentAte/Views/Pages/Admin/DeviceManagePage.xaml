@@ -12,15 +12,27 @@
     <Grid Margin="15 10" VerticalAlignment="Top">
         <ScrollViewer>
             <StackPanel>
-                <ui:TextBlock FontTypography="BodyStrong" Text="设备管理" />
+                <ui:TextBlock FontTypography="Subtitle" Text="设备管理" Margin="0 10 0 0"/>
                 <UniformGrid HorizontalAlignment="Stretch" Columns="3" Margin="0 15">
                     <ui:Card>
                         <ui:Card.Footer>
                             <Grid>
-                                <ui:TextBlock Text="当前设备状况" HorizontalAlignment="Left"/>
-                                <ui:ProgressRing Progress="88" Height="15" Width="15"  HorizontalAlignment="Right" />
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <ui:SymbolIcon Symbol="Bug20" FontSize="18"/>
+                                    <ui:TextBlock Text="设备状况" FontTypography="Body" Margin="10 0 0 0"/>
+                                </StackPanel>
+                                <ui:ProgressRing Progress="88" Height="15" Width="15"  HorizontalAlignment="Right" IsIndeterminate="True"/>
                             </Grid>
                         </ui:Card.Footer>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:TextBlock FontTypography="BodyStrong" Text="设备数量" />
+                                    <ui:TextBlock FontTypography="Body" Text="10" Margin="10 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    
                     </ui:Card>
                 </UniformGrid>
             </StackPanel>

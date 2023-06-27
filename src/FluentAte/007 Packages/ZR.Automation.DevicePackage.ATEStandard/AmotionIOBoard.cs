@@ -43,5 +43,10 @@ namespace ZR.Automation.DevicePackage.ATEStandard
         {
             return true;
         }
+
+        object IAutomationDevice.SendCommand(string command, string parameters)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
