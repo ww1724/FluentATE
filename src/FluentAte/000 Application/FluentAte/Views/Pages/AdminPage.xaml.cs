@@ -23,18 +23,8 @@ namespace FluentAte.Views.Pages
             InitializeComponent();
 
             NavigationView.SetServiceProvider(serviceProvider);
-            NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(HomePage));
+            NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(DeviceManagePage));
 
-        }
-
-        private void OnNavigationSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            if (sender is not Wpf.Ui.Controls.Navigation.NavigationView navigationView)
-                return;
-
-            NavigationView.HeaderVisibility = navigationView.SelectedItem?.TargetPageType != typeof(DashboardPage)
-                ? Visibility.Visible
-                : Visibility.Collapsed;
         }
     }
 }

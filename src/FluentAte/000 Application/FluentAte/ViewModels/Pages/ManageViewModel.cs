@@ -18,7 +18,7 @@ namespace FluentAte.ViewModels.Pages
 
             _menuItems = new ObservableCollection<object>
             {
-                new NavigationViewItem("管理首页", SymbolRegular.Home24, typeof(Views.Pages.Manage.HomePage)),
+                //new NavigationViewItem("管理首页", SymbolRegular.Home24, typeof(Views.Pages.Manage.HomePage)),
                 new NavigationViewItem("程序编辑", SymbolRegular.Check24, typeof(Views.Pages.Manage.CodeEditorPage)),
                 new NavigationViewItem("程序管理", SymbolRegular.Bookmark32, typeof(Views.Pages.Manage.CodeManagePage)),
                 new NavigationViewItem("数据中心", SymbolRegular.DataUsage20, typeof(Views.Pages.Manage.DataCentralPage)),

@@ -11,80 +11,83 @@
     <Grid Margin="15 10" VerticalAlignment="Top">
         <ScrollViewer>
             <StackPanel>
-                <UniformGrid HorizontalAlignment="Stretch" Columns="3" Margin="0 15">
-                    <ui:Card Margin="10 0">
+                <ui:CardExpander Icon="{ui:SymbolIcon AppRecent24}" IsExpanded="True">
+                    <ui:CardExpander.Header>
                         <Grid>
-                            <StackPanel>
-                                <UniformGrid Columns="3" >
-                                    <ui:Button Content="添加设备" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Left"/>
-                                    <ui:Button Content="扫描设备包" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>
-                                    <ui:Button Content="导出数据" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Right" />
-                                </UniformGrid>
-                                <ui:CardAction Margin="0 10 0 0" Icon="">
-                                    <StackPanel></StackPanel>
-                                </ui:CardAction>
-                                <ui:CardAction Margin="0 10 0 0">
-                                    <StackPanel></StackPanel>
-                                </ui:CardAction>
-                            </StackPanel>
+                            <ui:TextBlock HorizontalAlignment="Left" Text="设备管理" FontTypography="Subtitle" VerticalAlignment="Center"/>
+                            <UniformGrid Columns="3" HorizontalAlignment="Right">
+                                <ui:Button Content="添加设备" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Left"/>
+                                <ui:Button Content="扫描设备包" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>
+                                <ui:Button Content="导出数据" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Right" />
+                            </UniformGrid>
                         </Grid>
-                        <ui:Card.Footer>
-                            <Grid Margin="-5">
-                                <StackPanel HorizontalAlignment="Left">
-                                    <ui:TextBlock FontTypography="Body" Text="基础操作"/>
-                                </StackPanel>
-                                <StackPanel HorizontalAlignment="Right"></StackPanel>
-                            </Grid>
-                        </ui:Card.Footer>
-                    </ui:Card>
+                    </ui:CardExpander.Header>
 
-                    <ui:Card>
-                        <ui:Card.Footer >
-                            <Grid Margin="-5 -10">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <ui:SymbolIcon Symbol="Bug20" FontSize="18" VerticalAlignment="Center"/>
-                                    <ui:TextBlock Text="设备状况" FontTypography="Body" Margin="10 0 0 0" VerticalAlignment="Center"/>
-                                </StackPanel>
-                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                                    <ui:ProgressRing Visibility="Collapsed" Progress="88" Height="15" Width="15" IsIndeterminate="True"/>
-                                    <ui:Button Content="重新检测" Icon="{ui:SymbolIcon ArrowClockwise12}" Margin="5 0"/>
-          
-                                </StackPanel>
-                            </Grid>
-                        </ui:Card.Footer>
-                        <StackPanel Orientation="Vertical" Margin="0 0 0 35 ">
-                            <StackPanel Margin="0 5">
-                                <ProgressBar Value="100" Maximum="100"/>
-                                <Grid Margin="3 0">
-                                    <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Left" FontTypography="Caption" Text="加载成功" />
-                                    <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Right" FontTypography="Caption" Text="100%" />
-                                </Grid>
 
-                            </StackPanel>
-                            <StackPanel Margin="0 5">
-                                <ProgressBar Value="20" Maximum="100"/>
-                                <Grid Margin="3 0">
-                                    <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Left" FontTypography="Caption" Text="运行中设备" />
-                                    <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Right" FontTypography="Caption" Text="20%" />
-                                </Grid>
-                            </StackPanel>
-                            <StackPanel Margin="0 5">
-                                <ProgressBar Value="100" Maximum="100"/>
-                                <Grid Margin="3 0">
-                                    <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Left" FontTypography="Caption" Text="可使用设备包" />
-                                    <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Right" FontTypography="Caption" Text="20/20" />
-                                </Grid>
-                            </StackPanel>
-                        </StackPanel>
-                    
-                    </ui:Card>
-                    
+                    <StackPanel>
+                        <UniformGrid Columns="2" x:Name="BoardContainer">
+                            <ui:Card >
+                                <ui:Card.Footer >
+                                    <Grid Margin="-5 -10">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                            <ui:SymbolIcon Symbol="Bug20" FontSize="18" VerticalAlignment="Center"/>
+                                            <ui:TextBlock Text="设备状况" FontTypography="BodyStrong" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                            <ui:ProgressRing Visibility="Collapsed" Progress="88" Height="15" Width="15" IsIndeterminate="True"/>
+                                            <ui:Button Content="重新检测" Icon="{ui:SymbolIcon ArrowClockwise12}" Margin="5 0"/>
+
+                                        </StackPanel>
+                                    </Grid>
+                                </ui:Card.Footer>
+                                <StackPanel Orientation="Vertical" Margin="0 0 0 35 ">
+                                    <StackPanel Margin="0 5">
+                                        <ProgressBar Value="100" Maximum="100"/>
+                                        <Grid Margin="3 0">
+                                            <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Left" FontTypography="Caption" Text="加载成功" />
+                                            <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Right" FontTypography="Caption" Text="100%" />
+                                        </Grid>
+
+                                    </StackPanel>
+                                    <StackPanel Margin="0 5">
+                                        <ProgressBar Value="20" Maximum="100"/>
+                                        <Grid Margin="3 0">
+                                            <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Left" FontTypography="Caption" Text="运行中设备" />
+                                            <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Right" FontTypography="Caption" Text="20%" />
+                                        </Grid>
+                                    </StackPanel>
+                                    <StackPanel Margin="0 5">
+                                        <ProgressBar Value="100" Maximum="100"/>
+                                        <Grid Margin="3 0">
+                                            <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Left" FontTypography="Caption" Text="可使用设备包" />
+                                            <ui:TextBlock FontStyle="Italic" HorizontalAlignment="Right" FontTypography="Caption" Text="20/20" />
+                                        </Grid>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ui:Card>
+                        </UniformGrid>
+
+
+
+                        <ui:TextBlock Text="设备列表" Margin="0 10" FontTypography="BodyStrong"/>
+
+                        <ui:CardAction  Icon="{ui:SymbolIcon AirplaneTakeOff16}" Margin="0 5"/>
+                        <ui:CardAction  Icon="{ui:SymbolIcon AirplaneTakeOff16}" Margin="0 5"/>
+                        <ui:CardAction  Icon="{ui:SymbolIcon AirplaneTakeOff16}" Margin="0 5"/>
+                        <ui:CardAction  Icon="{ui:SymbolIcon AirplaneTakeOff16}" Margin="0 5"/>
+
+                        <ListView ItemsSource="{Binding ViewModel.DeviceStore}"></ListView>
+
+                    </StackPanel>
                 
-                </UniformGrid>
+                
+                
+                
+                </ui:CardExpander>
 
-                <ui:TextBlock FontTypography="Body" Text="设备列表"/>
-            
-                <ListView ItemsSource="{Binding ViewModel.DeviceStore}"></ListView>
+
+
+                
             </StackPanel>
             
     

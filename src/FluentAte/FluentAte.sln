@@ -33,13 +33,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZR.Automation.Device", "006
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "007 Packages", "007 Packages", "{1B20FC22-AB62-46AA-8008-9D73657959F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZR.Automation.DevicePackage.ATEStandard", "007 Packages\ZR.Automation.DevicePackage.ATEStandard\ZR.Automation.DevicePackage.ATEStandard.csproj", "{610D3899-9489-43CC-B51B-D06C43D4EA9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATE.Package.Device.Standard", "007 Packages\ZR.Automation.DevicePackage.ATEStandard\ATE.Package.Device.Standard.csproj", "{610D3899-9489-43CC-B51B-D06C43D4EA9A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATE.Share", "001 Commons\ATE.Share\ATE.Share.csproj", "{4DBE697A-860E-4881-AF0A-2DE56D5EFBEE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Ui", "006 3rdParties\Wpf.Ui\Wpf.Ui.csproj", "{ACD7B2CC-A8B7-4FE9-9558-228BE4ADD4F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentATE.DevicePackage.IOBoard", "004 Extensions\FluentATE.DevicePackage.IOBoard\FluentATE.DevicePackage.IOBoard.csproj", "{82161281-AB98-4715-8E02-2B10F28EC6A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentATE.DevicePackage.IOBoard", "004 Extensions\FluentATE.DevicePackage.IOBoard\FluentATE.DevicePackage.IOBoard.csproj", "{82161281-AB98-4715-8E02-2B10F28EC6A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

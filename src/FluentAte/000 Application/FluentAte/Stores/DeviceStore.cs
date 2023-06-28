@@ -1,4 +1,4 @@
-﻿using ATE.Common.Test;
+﻿using ATE.Service;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
@@ -14,9 +14,9 @@ namespace ATE.Share.Stores
         [ObservableProperty]
         public ObservableCollection<object> devices;
 
-        private DeviceManager _deviceManager { get;set; }
+        private DeviceManageService _deviceManager { get;set; }
 
-        public DeviceStore(DeviceManager deviceManager)
+        public DeviceStore(DeviceManageService deviceManager)
         {
             _deviceManager = deviceManager;
             devices = new ObservableCollection<object>(_deviceManager.GetDeviceList());

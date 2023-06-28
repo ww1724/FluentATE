@@ -1,5 +1,4 @@
 ﻿using ATE.Common.Contracts;
-using ATE.Common.Test;
 using ATE.Service;
 using ATE.Share.Stores;
 using FluentAte.Models;
@@ -44,9 +43,14 @@ namespace FluentAte
                 services.AddSingleton<WindowsProviderService>();
 
                 // MyServices
-                services.AddSingleton<DeviceManager>();
-                services.AddSingleton<LoggerService>();
+                // 1
+                services.AddSingleton<MefService>();
                 services.AddSingleton<DbService>();
+                // 2
+                services.AddSingleton<LoggerService>();
+                // 3
+                services.AddSingleton<DeviceManageService>();
+
                 // MyStores
                 services.AddSingleton<TestStore>();
                 services.AddSingleton<DeviceStore>();
@@ -89,7 +93,6 @@ namespace FluentAte
 
                 // Configuration
                 services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
-                services.Configure<DbService>(x => { });
             }).Build();
 
         /// <summary>

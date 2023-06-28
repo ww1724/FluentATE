@@ -5,15 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ATE.Common.Test
+namespace ATE.Service
 {
-    public class DeviceManager
+    public class DeviceManageService
     {
-        
-
-        public DeviceManager()
+        private MefService _mefService;
+        public DeviceManageService(MefService mefService)
         {
-            
+            _mefService = mefService;
         }
 
         public void InitializeDevice(string deviceId)
@@ -27,7 +26,7 @@ namespace ATE.Common.Test
         }
 
         public void SendCommandToDevice(string deviceID, string command, params object[] parameter) { }
-    
+
         public void SendCommandToDevice(string deviceID, string command, string parameter) { }
 
     }
