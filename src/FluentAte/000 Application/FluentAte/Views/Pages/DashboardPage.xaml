@@ -20,20 +20,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ui:TextBlock Text="测试面板" FontTypography="Title" Margin="0 0 0 10"/>
-        <ui:Card Grid.Row="1">
-            <Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <ui:Button Icon="{ui:SymbolIcon TriangleRight12}" Appearance="Primary" Content="开始测试" ToolTipService.ToolTip="开始测试,等待信号   "></ui:Button>
-                    <ui:Button Icon="Fluent24"  Margin="5 0">停止测试</ui:Button>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <ui:Button Icon="" Appearance="Primary" Command="{Binding ViewModel.AllToTestCommand}">选择全部</ui:Button>
-                    <ui:Button Appearance="Secondary" Margin="5 0" Command="{Binding ViewModel.AllNotToTestCommand}">全部不选</ui:Button>
-                    <ui:Button Appearance="Primary" Command="{Binding ViewModel.ExpandAllItemsCommand}">展开全部</ui:Button>
-                    <ui:Button Appearance="Secondary" Margin="5 0" Command="{Binding ViewModel.ShrinkAllItemsCommand}">收缩全部</ui:Button>
-                </StackPanel>
-            </Grid>
-        </ui:Card>
+        <ui:CardExpander Grid.Row="1">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <ui:Button Icon="{ui:SymbolIcon TriangleRight12}" Appearance="Primary" Content="开始测试" ToolTipService.ToolTip="开始测试,等待信号   "></ui:Button>
+                        <ui:Button Icon="Fluent24"  Margin="5 0">停止测试</ui:Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <ui:Button Icon="" Appearance="Primary" Command="{Binding ViewModel.AllToTestCommand}">选择全部</ui:Button>
+                        <ui:Button Appearance="Secondary" Margin="5 0" Command="{Binding ViewModel.AllNotToTestCommand}">全部不选</ui:Button>
+                        <ui:Button Appearance="Primary" Command="{Binding ViewModel.ExpandAllItemsCommand}">展开全部</ui:Button>
+                        <ui:Button Appearance="Secondary" Margin="5 0" Command="{Binding ViewModel.ShrinkAllItemsCommand}">收缩全部</ui:Button>
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+        </ui:CardExpander>
         <ui:Card Grid.Row="2" Margin="0 5" >
             <ListView ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="100">
                 <ListView.Template>
