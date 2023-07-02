@@ -35,8 +35,7 @@ namespace ATE.Share.Stores
         public ObservableCollection<IDeviceGroupMetadata> supportDevicePackages;
 
 
-        private int availableDevicePackageNumber;
-        public int AvailableDevicePackageNumber { get => SupportDevicePackages.Count; set => availableDevicePackageNumber = SupportDevicePackages.Count ; }
+        public int AvailableDevicePackageNumber { get => SupportDevicePackages.Count; }
 
         public DeviceStore(DeviceManager deviceManager)
         {
