@@ -3,10 +3,10 @@ using System.ComponentModel.Composition;
 
 namespace ATE.Package.Device.Standard
 {
-    [Export("AmotionIOBoardGroup", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [Export("AmotionIOBoardGroup1", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
     [Export(typeof(IDeviceGroup))]
-    [DeviceGroupMetadata(id: "AmotionIOBoardGroup", name: "艾莫迅IO模块设备组", description: "纯数字量IO模块，支持Mobus Tcp|RTU、级联|串联方式控制")]
-    public class AmotionIOBoardGroup : IDeviceGroup
+    [DeviceGroupMetadata(id: "AmotionIOBoardGroup1", name: "艾莫迅IO模块设备组1", description: "纯数字量IO模块，支持Mobus Tcp|RTU、级联|串联方式控制")]
+    public class AmotionIOBoardGroup1 : IDeviceGroup
     {
         public Dictionary<int, object> Devices { get; set; }
 
@@ -14,7 +14,7 @@ namespace ATE.Package.Device.Standard
 
         public string ErrorString { get; private set; } = "";
 
-        public AmotionIOBoardGroup()
+        public AmotionIOBoardGroup1()
         {
         }
 

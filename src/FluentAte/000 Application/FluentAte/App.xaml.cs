@@ -3,7 +3,6 @@ using ATE.Service;
 using ATE.Share.Stores;
 using FluentAte.Models;
 using FluentAte.Services;
-using FluentAte.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -36,20 +35,20 @@ namespace FluentAte
                 services.AddHostedService<ApplicationHostService>();
 
                 // UI Services
-                services.AddSingleton<MainWindowViewModel>();
+                services.AddSingleton<ViewModels.MainWindowViewModel>();
                 services.AddSingleton<INavigationService, Wpf.Ui.Services.NavigationService>();
                 services.AddSingleton<ISnackbarService, SnackbarService>();
                 services.AddSingleton<IContentDialogService, ContentDialogService>();
                 services.AddSingleton<WindowsProviderService>();
 
                 // MyServices
-                // 1
+                // Level 1
                 services.AddSingleton<MefService>();
                 services.AddSingleton<DbService>();
-                // 2
+                // Level 2
                 services.AddSingleton<LoggerService>();
-                // 3
-                services.AddSingleton<DeviceManageService>();
+                // Level 3
+                services.AddSingleton<DeviceManager>();
 
                 // MyStores
                 services.AddSingleton<TestStore>();
@@ -120,7 +119,6 @@ namespace FluentAte
         private async void OnExit(object sender, ExitEventArgs e)
         {
             await _host.StopAsync();
-
             _host.Dispose();
         }
 

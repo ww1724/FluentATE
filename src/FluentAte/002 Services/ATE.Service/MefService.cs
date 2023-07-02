@@ -23,7 +23,7 @@ namespace ATE.Service
         public string StateString { get; private set; } = "default";
 
         // mef
-        private CompositionContainer container;
+        public CompositionContainer container;
         private AggregateCatalog catalog;
 
         public string ErrorString { get; set; } = "";
@@ -43,6 +43,7 @@ namespace ATE.Service
                 catalog = new AggregateCatalog(c1, c2);
                 container = new CompositionContainer(catalog);
                 var a = container.GetExports<IDevice, IDictionary<string, object>>();
+                var c = container.GetExports<IDeviceGroup, IDictionary<string, object>>();
                 foreach(var e in a)
                 {
                     var b = e.Metadata;
@@ -58,5 +59,10 @@ namespace ATE.Service
 
             return true;
         }
+   
+        public List<Lazy<T>> GetExports<T>(T t) {
+            return container.GetExports<T>().ToList();
+        }
+    
     }
 }

@@ -10,4 +10,8 @@
     <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ATE.Common\ATE.Common.csproj" />
+  </ItemGroup>
+
 </Project>

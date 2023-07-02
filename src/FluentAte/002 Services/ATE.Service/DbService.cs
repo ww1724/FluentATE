@@ -1,5 +1,6 @@
 ﻿using ATE.Common.Contracts;
 using ATE.Common.Dal;
+using ATE.Common.Test.Dal;
 using SqlSugar;
 using System.Configuration;
 
@@ -35,7 +36,8 @@ namespace ATE.Service
         {
             sugarClient.DbMaintenance.CreateDatabase();
             sugarClient.CodeFirst.InitTables(
-                typeof(UserEntity)
+                typeof(UserEntity),
+                typeof(DeviceGroupEntity)
                 );
             if (!sugarClient.Queryable<UserEntity>().Any())
             {

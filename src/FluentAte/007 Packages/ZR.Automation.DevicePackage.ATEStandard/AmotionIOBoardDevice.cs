@@ -1,14 +1,9 @@
 ﻿using ATE.Common.Test;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ATE.Package.Device.Standard
 {
-    [Export(typeof(IDevice))]
+
     [DeviceMetadata(deviceId: "AmotionIOBoardDevice", name: "艾莫迅IO模块", description: "纯数字量IO模块，支持Mobus Tcp|RTU、级联|串联方式控制")]
     public class AmotionIOBoardDevice : IDevice
     {

@@ -21,7 +21,9 @@
     <ProjectReference Include="..\..\001 Commons\ATE.Common\ATE.Common.csproj" />
     <ProjectReference Include="..\..\001 Commons\ATE.Share\ATE.Share.csproj" />
     <ProjectReference Include="..\..\002 Services\ATE.Service\ATE.Service.csproj" />
+    <ProjectReference Include="..\..\004 Extensions\FluentATE.DevicePackage.IOBoard\FluentATE.DevicePackage.IOBoard.csproj" />
     <ProjectReference Include="..\..\006 3rdParties\Wpf.Ui\Wpf.Ui.csproj" />
+    <ProjectReference Include="..\..\006 3rdParties\ZR.Util.Wpf\ZR.Util.Wpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,7 +47,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\" />
     <Folder Include="Styles\" />
   </ItemGroup>
 

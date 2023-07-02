@@ -19,7 +19,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ui:TextBlock Text="测试面板" FontTypography="Title" Margin="0 0 0 10"/>
+        <!--<ui:TextBlock Text="测试面板" FontTypography="Title" Margin="0 0 0 10"/>-->
         <ui:CardExpander Grid.Row="1">
             <ui:CardExpander.Header>
                 <Grid>
