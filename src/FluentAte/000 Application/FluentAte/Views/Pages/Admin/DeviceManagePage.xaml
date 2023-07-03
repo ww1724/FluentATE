@@ -6,27 +6,32 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
       xmlns:admin="clr-namespace:FluentAte.Views.Pages.Admin" d:DataContext="{d:DesignInstance Type=admin:DeviceManagePage}"
       mc:Ignorable="d" 
+      Height="auto"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DeviceManagePage">
 
-    <Grid Margin="15 10" VerticalAlignment="Stretch" >
-        <ScrollViewer>
-            <StackPanel>
-                <ui:CardExpander  Icon="{ui:SymbolIcon AppRecent24}" IsExpanded="True">
-                    <ui:CardExpander.Header>
-                        <Grid>
-                            <ui:TextBlock HorizontalAlignment="Left" Text="设备管理" FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <ui:Button Content="添加设备组" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Center" />
-                                <ui:Button Content="扫描设备包" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>
-                                <ui:Button Content="导出数据" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Center" />
+    <Grid Margin="15 10" VerticalAlignment="Top" >
+        <StackPanel>
+            <ui:CardExpander  Icon="{ui:SymbolIcon AppRecent24}" IsExpanded="True">
+                <ui:CardExpander.Header>
+                    <Grid>
+                        <ui:TextBlock HorizontalAlignment="Left" Text="设备管理" FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                <ui:ProgressRing Visibility="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource  BoolToVisibilityConverter}}" Progress="88" Height="15" Width="15" IsIndeterminate="True"/>
+                                <ui:Button Content="扫描设备包" Icon="{ui:SymbolIcon ArrowClockwise12}" Margin="5 0" Command="{Binding ViewModel.DeviceStore.DetectDeviceCommand}" IsEnabled="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource ReverseBoolConverter}}"/>
                             </StackPanel>
-                        </Grid>
-                    </ui:CardExpander.Header>
+                            <!--<ui:Button Content="扫描设备包" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>-->
+                            <ui:Button Content="添加设备" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Center" />
+                            <ui:Button Content="导出数据" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardExpander.Header>
 
 
+                <ScrollViewer MaxHeight="600">
                     <StackPanel>
-                        <UniformGrid Columns="2" x:Name="BoardContainer">
+                        <!--<UniformGrid Columns="2" x:Name="BoardContainer">
                             <ui:Card x:Name="DeviceManageCard">
                                 <ui:Card.Footer >
                                     <Grid Margin="-5 -10">
@@ -37,7 +42,6 @@
                                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                                             <ui:ProgressRing Visibility="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource  BoolToVisibilityConverter}}" Progress="88" Height="15" Width="15" IsIndeterminate="True"/>
                                             <ui:Button Content="重新检测" Icon="{ui:SymbolIcon ArrowClockwise12}" Margin="5 0" Command="{Binding ViewModel.DeviceStore.DetectDeviceCommand}" IsEnabled="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource ReverseBoolConverter}}"/>
-
                                         </StackPanel>
                                     </Grid>
                                 </ui:Card.Footer>
@@ -57,7 +61,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </ui:Card>
-                        </UniformGrid>
+                        </UniformGrid>-->
 
                         <ui:TextBlock Text="支持设备包列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle"/>
 
@@ -76,29 +80,74 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <!--<DataGrid HeadersVisibility="Column"  ItemsSource="{Binding ViewModel.DeviceStore.SupportDevicePackages}" AlternationCount="1000">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="序号" Width="Auto" IsReadOnly="True"
-                                    Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGridRow},
-                                    Path=(ItemsControl.AlternationIndex)}" />
-                                --><!-- 其他列 --><!--
-                            </DataGrid.Columns>
-                        </DataGrid>-->
 
-                        <ui:TextBlock Text="设备列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle"/>
-
-                        
-
+                        <!--<ui:TextBlock Text="设备列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle" />-->
                     </StackPanel>
+                </ScrollViewer>
+            </ui:CardExpander>
+
+            <ui:CardExpander Margin="0 10" Icon="{ui:SymbolIcon AlignSpaceEvenlyVertical20}" IsExpanded="True">
+                <ui:CardExpander.Header>
+                    <Grid>
+                        <ui:TextBlock HorizontalAlignment="Left" Text="设备控制 " FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <ComboBox></ComboBox>
+                            <!--<ui:Button Content="添加设备组" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Center" />
+                            <ui:Button Content="扫描设备包" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>
+                            <ui:Button Content="导出数据" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Center" />-->
+                        </StackPanel>
+                    </Grid>
+                </ui:CardExpander.Header>
 
 
 
+                <StackPanel>
+                        <ui:CardExpander Margin="0 10" Icon="{ui:SymbolIcon AlignSpaceEvenlyVertical20}" IsExpanded="True">
+                            <ui:CardExpander.Header>
+                                <Grid>
+                                    <ui:TextBlock HorizontalAlignment="Left" Text="设备控制 " FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <ComboBox></ComboBox>
+                                        <!--<ui:Button Content="添加设备组" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Center" />
+                            <ui:Button Content="扫描设备包" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>
+                            <ui:Button Content="导出数据" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Center" />-->
+                                    </StackPanel>
+                                </Grid>
+                            </ui:CardExpander.Header>
+                        </ui:CardExpander>
+                        <ui:CardExpander Margin="0 10" Icon="{ui:SymbolIcon AlignSpaceEvenlyVertical20}" IsExpanded="True">
+                            <ui:CardExpander.Header>
+                                <Grid>
+                                    <ui:TextBlock HorizontalAlignment="Left" Text="设备控制 " FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <ComboBox></ComboBox>
+                                        <!--<ui:Button Content="添加设备组" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Center" />
+                            <ui:Button Content="扫描设备包" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>
+                            <ui:Button Content="导出数据" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Center" />-->
+                                    </StackPanel>
+                                </Grid>
+                            </ui:CardExpander.Header>
+                        </ui:CardExpander>
+                        <ui:CardExpander Margin="0 10" Icon="{ui:SymbolIcon AlignSpaceEvenlyVertical20}" IsExpanded="True">
+                            <ui:CardExpander.Header>
+                                <Grid>
+                                    <ui:TextBlock HorizontalAlignment="Left" Text="设备控制 " FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <ComboBox></ComboBox>
+                                        <!--<ui:Button Content="添加设备组" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Center" />
+                            <ui:Button Content="扫描设备包" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>
+                            <ui:Button Content="导出数据" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Center" />-->
+                                    </StackPanel>
+                                </Grid>
+                            </ui:CardExpander.Header>
+                        </ui:CardExpander>
+                    </StackPanel>
+                    
 
-                </ui:CardExpander>
-
-            </StackPanel>
-
-
-        </ScrollViewer>
+            </ui:CardExpander> 
+        
+        
+        </StackPanel>
+       
     </Grid>
 </Page>

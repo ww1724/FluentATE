@@ -22,9 +22,6 @@ namespace ATE.Share.Stores
         [ObservableProperty]
         private bool isDetectingDevice = false;
 
-        [ObservableProperty]
-        private bool isShowDetectDeviceBoard = false;
-
         private int DetectTimeout = 5000;
 
         [ObservableProperty]
@@ -42,23 +39,22 @@ namespace ATE.Share.Stores
             _deviceManager = deviceManager;
             devices = new ObservableCollection<object>(_deviceManager.GetDeviceList());
             SupportDevicePackages = new ObservableCollection<IDeviceGroupMetadata>();
-            DetectDevice();
+            //DetectDevice();
         }
 
         [RelayCommand]
         public async void DetectDevice()
         {
             IsDetectingDevice = true;
-            IsShowDetectDeviceBoard = true;
+            SupportDevicePackages = new ObservableCollection<IDeviceGroupMetadata>();
             var operationTask = Task.Run(() => _deviceManager.DetectDevice());
             if ( await Task.WhenAny(operationTask, Task.Delay(DetectTimeout)) == operationTask)
             {
                 try
                 {
-                    await Task.Delay(3000);
+                    await Task.Delay(100);
                     IsDetectingDevice = false;
-                    IsShowDetectDeviceBoard = false;
-                    SupportDevicePackages = new ObservableCollection<IDeviceGroupMetadata>();
+                    
                    foreach (var package in _deviceManager.DeviceGroupPackages.Keys)
                     {
                         SupportDevicePackages.Add(package);
