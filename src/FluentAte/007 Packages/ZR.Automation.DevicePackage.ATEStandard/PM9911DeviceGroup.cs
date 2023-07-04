@@ -3,10 +3,10 @@ using System.ComponentModel.Composition;
 
 namespace ATE.Package.Device.Standard
 {
-    [Export("Device.AmotionIOBoard", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [Export("Device.PM9911", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
     [Export(typeof(IDeviceGroup))]
-    [DeviceGroupMetadata(id: "Device.AmotionIOBoard", name: "艾莫迅IO模块", description: "纯数字量IO模块，支持Mobus Tcp|RTU、级联|串联方式控制")]
-    public class AmotionIOBoardGroup : IDeviceGroup
+    [DeviceGroupMetadata(id: "Device.PM9911", name: "PM9911功率计", description: "普美功率计,选配232/UART/485")]
+    public class PM9911DeviceGroup : IDeviceGroup
     {
         public Dictionary<int, object> Devices { get; set; }
 
@@ -14,7 +14,7 @@ namespace ATE.Package.Device.Standard
 
         public string ErrorString { get; private set; } = "";
 
-        public AmotionIOBoardGroup()
+        public PM9911DeviceGroup()
         {
         }
 

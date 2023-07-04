@@ -63,7 +63,13 @@
                             </ui:Card>
                         </UniformGrid>-->
 
-                        <ui:TextBlock Text="支持设备包列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle"/>
+                        <StackPanel Orientation="Horizontal">
+
+                            <ui:TextBlock Text="支持设备包列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle"/>
+                            <ui:Badge Margin="10" HorizontalAlignment="Center" Width="30">
+                                <TextBlock Text="{Binding ViewModel.DeviceStore.AvailableDevicePackageNumber}"  VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </ui:Badge>
+                        </StackPanel>
 
                         <ListView ItemsSource="{Binding ViewModel.DeviceStore.SupportDevicePackages}">
                             <ListView.ItemTemplate>

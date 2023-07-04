@@ -3,10 +3,10 @@ using System.ComponentModel.Composition;
 
 namespace ATE.Package.Device.Standard
 {
-    [Export("Device.AmotionIOBoard", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [Export("Device.Ainuo9632x", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
     [Export(typeof(IDeviceGroup))]
-    [DeviceGroupMetadata(id: "Device.AmotionIOBoard", name: "艾莫迅IO模块", description: "纯数字量IO模块，支持Mobus Tcp|RTU、级联|串联方式控制")]
-    public class AmotionIOBoardGroup : IDeviceGroup
+    [DeviceGroupMetadata(id: "Device.Ainuo9632x", name: "艾诺耐压测试仪", description: "耐压|绝缘测试, 选配485/232")]
+    public class Ainuo9632xDeviceGroup : IDeviceGroup
     {
         public Dictionary<int, object> Devices { get; set; }
 
@@ -14,7 +14,7 @@ namespace ATE.Package.Device.Standard
 
         public string ErrorString { get; private set; } = "";
 
-        public AmotionIOBoardGroup()
+        public Ainuo9632xDeviceGroup()
         {
         }
 

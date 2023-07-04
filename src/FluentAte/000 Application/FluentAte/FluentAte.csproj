@@ -12,7 +12,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+    <PackageReference Include="WpfExtensions.Binding" Version="1.0.1" />
+    <PackageReference Include="WpfExtensions.Xaml" Version="1.2.0" />
   </ItemGroup>
 
 
@@ -21,7 +22,6 @@
     <ProjectReference Include="..\..\001 Commons\ATE.Common\ATE.Common.csproj" />
     <ProjectReference Include="..\..\001 Commons\ATE.Share\ATE.Share.csproj" />
     <ProjectReference Include="..\..\002 Services\ATE.Service\ATE.Service.csproj" />
-    <ProjectReference Include="..\..\004 Extensions\FluentATE.DevicePackage.IOBoard\FluentATE.DevicePackage.IOBoard.csproj" />
     <ProjectReference Include="..\..\006 3rdParties\Wpf.Ui\Wpf.Ui.csproj" />
     <ProjectReference Include="..\..\006 3rdParties\ZR.Util.Wpf\ZR.Util.Wpf.csproj" />
   </ItemGroup>
@@ -48,6 +48,7 @@
 
   <ItemGroup>
     <Folder Include="Styles\" />
+    <Folder Include="ViewModels\Controls\" />
   </ItemGroup>
 
 

@@ -4,11 +4,71 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FluentAte.Views.Pages.Manage"
+      d:DataContext="{d:DesignInstance Type=local:CodeEditorPage}"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CodeEditor">
 
-    <Grid>
-        <TextBlock Text="程序编辑" FontSize="48" />
+    <Grid Margin="20 0">
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ui:TextBlock Grid.Row="0" Grid.Column="0" Text="程序编辑" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle" />
+            <ListView x:Name="CodeStepListView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AllowDrop="True">
+                <ListView.Template>
+                    <ControlTemplate TargetType="ListView">
+                        <ScrollViewer>
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ListView.Template>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ui:CardExpander IsExpanded="{Binding IsExpand}">
+                            <ui:CardExpander.Header>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=(ItemsControl.AlternationIndex)}" 
+                                           Margin="5,0,0,0" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Left" 
+                                           FontWeight="Bold" />
+                                        <CheckBox IsChecked="{Binding IsToTest}" Margin="15 0 0 0"/>
+                                        <Ellipse Fill="#FC7267" Width="15" Height="15" Margin="8 0"/>
+                                        <ui:TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="4 0"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+
+                                    </StackPanel>
+                                </Grid>
+                            </ui:CardExpander.Header>
+                        </ui:CardExpander>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown"/>
+                        <EventSetter Event="PreviewMouseMove" Handler="ListViewItem_PreviewMouseMove"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Grid>
+
+
+        <Grid  Grid.Column="1" Grid.Row="0" Width="300">
+            <ui:Badge Content="命令列表"/>
+        </Grid>
     </Grid>
 </Page>

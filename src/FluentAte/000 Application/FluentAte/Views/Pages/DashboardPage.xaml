@@ -38,15 +38,6 @@
         </ui:CardExpander>
         <ui:Card Grid.Row="2" Margin="0 5" >
             <ListView ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="100">
-                <ListView.Template>
-                    <ControlTemplate TargetType="ListView">
-                        <Grid>
-                            <ScrollViewer>
-                                <ItemsPresenter/>
-                            </ScrollViewer>
-                        </Grid>
-                    </ControlTemplate>
-                </ListView.Template>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ui:CardExpander IsExpanded="{Binding IsExpand}">

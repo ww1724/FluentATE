@@ -3,12 +3,9 @@ using ATE.Service;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
+using WpfExtensions.Binding;
 
 namespace ATE.Share.Stores
 {
@@ -27,19 +24,22 @@ namespace ATE.Share.Stores
         [ObservableProperty]
         private string detectDeviceErrorString = string.Empty;
 
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(AvailableDevicePackageNumber))]
+        [ObservableProperty]    
         public ObservableCollection<IDeviceGroupMetadata> supportDevicePackages;
 
-
-        public int AvailableDevicePackageNumber { get => SupportDevicePackages.Count; }
+        public int AvailableDevicePackageNumber => SupportDevicePackages.Count; 
 
         public DeviceStore(DeviceManager deviceManager)
         {
             _deviceManager = deviceManager;
             devices = new ObservableCollection<object>(_deviceManager.GetDeviceList());
             SupportDevicePackages = new ObservableCollection<IDeviceGroupMetadata>();
-            //DetectDevice();
+            this.PropertyChanged += (sender, e) => {
+                if (e.PropertyName == nameof(SupportDevicePackages))
+                {
+                    OnPropertyChanged(nameof(AvailableDevicePackageNumber));
+                }
+            };
         }
 
         [RelayCommand]
@@ -59,6 +59,8 @@ namespace ATE.Share.Stores
                     {
                         SupportDevicePackages.Add(package);
                     }
+
+                   OnPropertyChanged(nameof(SupportDevicePackages));
                     return;
                 }
                 catch (Exception)

@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wpf.Ui.Controls.ContentDialogControl;
 
-namespace FluentAte.Controls
+namespace FluentAte.Views.Dialogs
 {
     /// <summary>
     /// AddDeviceGroupDialog.xaml 的交互逻辑
     /// </summary>
-    public partial class AddDeviceGroupDialog : ContentDialog
+    public partial class AddDeviceGroupDialog : UserControl
     {
-        public AddDeviceGroupDialog(ContentPresenter contentPresenter) : base(contentPresenter)
+        public AddDeviceGroupDialog()
         {
             InitializeComponent();
         }
