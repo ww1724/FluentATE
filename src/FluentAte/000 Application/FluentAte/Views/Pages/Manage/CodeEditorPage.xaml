@@ -10,6 +10,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CodeEditor">
 
+    <Page.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui;component/Styles/Controls/ListViewItem.xaml"/>
+    </Page.Resources>
+
     <Grid Margin="20 0">
 
 
@@ -25,42 +29,41 @@
             </Grid.RowDefinitions>
 
             <ui:TextBlock Grid.Row="0" Grid.Column="0" Text="程序编辑" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle" />
-            <ListView x:Name="CodeStepListView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AllowDrop="True">
-                <ListView.Template>
-                    <ControlTemplate TargetType="ListView">
-                        <ScrollViewer>
-                            <ItemsPresenter/>
-                        </ScrollViewer>
-                    </ControlTemplate>
-                </ListView.Template>
+            <ListView x:Name="CodeStepListView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="1000" AllowDrop="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ui:CardExpander IsExpanded="{Binding IsExpand}">
-                            <ui:CardExpander.Header>
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=(ItemsControl.AlternationIndex)}" 
+                        <Border Padding="0 2"
+                            BorderBrush="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=BorderBrush}"  
+                                BorderThickness="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=BorderThickness}">
+                            <ui:CardExpander IsExpanded="{Binding IsExpand}">
+                                <ui:CardExpander.Header>
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                            <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=(ItemsControl.AlternationIndex)}" 
                                            Margin="5,0,0,0" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Left" 
                                            FontWeight="Bold" />
-                                        <CheckBox IsChecked="{Binding IsToTest}" Margin="15 0 0 0"/>
-                                        <Ellipse Fill="#FC7267" Width="15" Height="15" Margin="8 0"/>
-                                        <ui:TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="4 0"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <CheckBox IsChecked="{Binding IsToTest}" Margin="15 0 0 0"/>
+                                            <Ellipse Fill="#FC7267" Width="15" Height="15" Margin="8 0"/>
+                                            <ui:TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="4 0"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
 
-                                    </StackPanel>
-                                </Grid>
-                            </ui:CardExpander.Header>
-                        </ui:CardExpander>
+                                        </StackPanel>
+                                    </Grid>
+                                </ui:CardExpander.Header>
+                            </ui:CardExpander>
+                        </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown"/>
-                        <EventSetter Event="PreviewMouseMove" Handler="ListViewItem_PreviewMouseMove"/>
+                    <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
+                        <EventSetter Event="PreviewMouseDown" Handler="ListViewItem_MouseDown"/>
+                        <EventSetter Event="PreviewDragOver" Handler="ListViewItem_PreviewDragOver"/>
+                        <EventSetter Event="PreviewDrop" Handler="ListViewItem_PreviewDrop"/>
+                        <Setter Property="BorderThickness" Value="0 2 0 0" />
                     </Style>
                 </ListView.ItemContainerStyle>
             </ListView>

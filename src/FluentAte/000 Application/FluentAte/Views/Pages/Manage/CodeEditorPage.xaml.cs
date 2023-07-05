@@ -1,4 +1,6 @@
-﻿using FluentAte.ViewModels.Pages.Admin;
+﻿using ATE.Share.Models;
+using FluentAte.ViewModels.Pages;
+using FluentAte.ViewModels.Pages.Admin;
 using FluentAte.ViewModels.Pages.Manage;
 using System;
 using System.Collections.Generic;
@@ -23,8 +25,7 @@ namespace FluentAte.Views.Pages.Manage
     /// </summary>
     public partial class CodeEditorPage : INavigableView<CodeEditorViewModel>
     {
-        private bool _isDragging;
-        private object _draggedItem;
+        private ListViewItem _draggedItem;
 
         public CodeEditorViewModel ViewModel
         {
@@ -38,29 +39,65 @@ namespace FluentAte.Views.Pages.Manage
             InitializeComponent();
         }
 
-        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void ListViewItem_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            _draggedItem = sender;
-            CodeStepListView.ScrollIntoView(CodeStepListView.Items[CodeStepListView.Items.Count - 1]);//移动到最后一行
-
+            _draggedItem = sender as ListViewItem;
+            if (_draggedItem == null) return;
+            //var itemIndex = CodeStepListView.ItemContainerGenerator.IndexFromContainer(_draggedItem as DependencyObject);
+            DragDrop.DoDragDrop(CodeStepListView, _draggedItem.DataContext, DragDropEffects.Copy);
         }
 
-        private void ListViewItem_PreviewMouseMove(object sender, MouseEventArgs e)
+
+        private void ListViewItem_PreviewDragOver(object sender, DragEventArgs e)
         {
-            if (_draggedItem == null || e.LeftButton != MouseButtonState.Pressed || _isDragging)
-                return;
-
-            _isDragging = true;
-
-            //var listView = sender as ListView;
-            var itemIndex = CodeStepListView.ItemContainerGenerator.IndexFromContainer(_draggedItem as DependencyObject);
-
-            // Initialize the drag & drop operation
-            var data = new DataObject(typeof(int), itemIndex);
-            DragDrop.DoDragDrop(CodeStepListView, data, DragDropEffects.Move);
-
-            _draggedItem = null;
-            _isDragging = false;
+            var item = sender as ListViewItem;
+            if (item == _draggedItem) return;
+            foreach (var i in FindVisualChild<ListViewItem>(CodeStepListView))
+            {
+                i.BorderBrush = Brushes.Transparent;
+            }
+            item.BorderBrush = Brushes.Red;
+            Console.WriteLine((item.DataContext as TestingStep).Title);
         }
+
+        private void ListViewItem_PreviewDrop(object sender, DragEventArgs e)
+        {
+            var target = sender as ListViewItem;
+            if (target == _draggedItem) return;
+            ViewModel.TestStore.Record.Steps.Remove(_draggedItem.DataContext as TestingStep);
+            ViewModel.TestStore.Record.Steps.Insert(CodeStepListView.Items.IndexOf(target.DataContext), e.Data.GetData(typeof(TestingStep)) as TestingStep);
+        }
+
+        static List<T> FindVisualChild<T>(DependencyObject obj) where T : DependencyObject
+        {
+            try
+            {
+                List<T> TList = new List<T> { };
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+                    if (child != null && child is T)
+                    {
+                        TList.Add((T)child);
+                    }
+                    else
+                    {
+                        List<T> childOfChildren = FindVisualChild<T>(child);
+                        if (childOfChildren != null)
+                        {
+                            TList.AddRange(childOfChildren);
+                        }
+                    }
+                }
+                return TList;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+        }
+
+
     }
 }

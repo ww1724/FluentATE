@@ -22,7 +22,7 @@ namespace FluentAte.Views.Pages
             DataContext = this;
             InitializeComponent();
             NavigationView.SetServiceProvider(serviceProvider);
-            NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(HomePage));
+            NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(CodeEditorPage));
         }
 
         private void OnNavigationSelectionChanged(object sender, RoutedEventArgs e)
