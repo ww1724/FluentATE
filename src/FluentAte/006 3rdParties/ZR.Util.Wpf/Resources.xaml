@@ -1,7 +1,35 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:ctr="clr-namespace:ZR.Util.Wpf.Converters">
+
+    <ctr:Bool2VisibilityConverter x:Key="Bool2VisibilityConverter"/>
+    <ctr:Bools2VisibilityConverter x:Key="Bools2VisibilityConverter"/>
+    <ctr:DataGridRowNumberConverter x:Key="DataGridRowNumberConverter"/>
+    <ctr:WindowMaximized2Margin x:Key="WindowMaximized2MarginConverter"/>
+    <ctr:Null2VisibilityConverter x:Key="Null2VisibilityConverter"/>
+    <ctr:String2LengthConverter x:Key="String2LengthConverter" />
+    <ctr:Path2LastConverter x:Key="Path2LastConverter" />
+    <ctr:Var2StringConverter x:Key="Var2StringConverter" />
+    <ctr:WindowMaximized2BorderThickness x:Key="WindowMaximized2BorderThickness"/>
+    <ctr:Nulls2VisibilityConverter x:Key="Nulls2VisibilityConverter" />
 
     <ctr:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
     <ctr:ReverseBoolConverter x:Key="ReverseBoolConverter"/>
+
+    <!-- Assets -->
+    <FontFamily x:Key="LxwkFontFamily">
+        pack://application:,,,/ZR.Util.Wpf;component/Resources/lxwk.ttf#LXGW WenKai
+    </FontFamily>
+
+    <FontFamily x:Key="IconFontFamily">
+        pack://application:,,,/ZR.Util.Wpf;component/Resources/iconfont.ttf#iconfont
+    </FontFamily>
+
+    <BitmapImage x:Key="TestAppIcon" UriSource="pack://application:,,,/ZR.Util.Wpf;component/Resources/icon.png"/>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource LxwkFontFamily}" />
+    </Style>
+
 </ResourceDictionary>

@@ -3,16 +3,14 @@ using ATE.Service;
 using ATE.Share.Stores;
 using FluentAte.Models;
 using FluentAte.Services;
+using FluentAte.Stores;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Reflection;
 using System.Windows;
-using System.Windows.Navigation;
 using System.Windows.Threading;
-using Wpf.Ui.Contracts;
-using Wpf.Ui.Services;
 
 namespace FluentAte
 {
@@ -36,9 +34,9 @@ namespace FluentAte
 
                 // UI Services
                 services.AddSingleton<ViewModels.MainWindowViewModel>();
-                services.AddSingleton<INavigationService, Wpf.Ui.Services.NavigationService>();
-                services.AddSingleton<ISnackbarService, SnackbarService>();
-                services.AddSingleton<IContentDialogService, ContentDialogService>();
+                services.AddSingleton<AppNavigationService>();
+                //services.AddSingleton<INavigationService, Wpf.Ui.Services.NavigationService>();
+                //services.AddSingleton<ISnackbarService, SnackbarService>();
                 services.AddSingleton<WindowsProviderService>();
 
                 // MyServices
@@ -51,6 +49,7 @@ namespace FluentAte
                 services.AddSingleton<DeviceManager>();
 
                 // MyStores
+                services.AddSingleton<AppStore>();
                 services.AddSingleton<TestStore>();
                 services.AddSingleton<DeviceStore>();
 

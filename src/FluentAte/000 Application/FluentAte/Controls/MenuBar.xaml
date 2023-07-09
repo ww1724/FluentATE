@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="FluentAte.Controls.MenuBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FluentAte.Controls" xmlns:stores="clr-namespace:FluentAte.Stores" d:DataContext="{d:DesignInstance Type=stores:AppStore}"
+             mc:Ignorable="d" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Width="200">
+        <ListView ItemsSource="{Binding MenuItems}" SelectedItem="{Binding CurrentMenu}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Icon}" FontFamily="{StaticResource IconFontFamily}" FontSize="16" Margin="5 0"/>
+                        <TextBlock Text="{Binding Title}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <hc:SimplePanel>
+                                    <ContentPresenter Content="{TemplateBinding Content}"
+                                                      ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                                </hc:SimplePanel>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>-->
+        </ListView>     
+    </Grid>
+</UserControl>

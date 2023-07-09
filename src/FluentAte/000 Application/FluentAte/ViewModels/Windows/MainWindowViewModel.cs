@@ -1,5 +1,6 @@
 ﻿using ATE.Share.Stores;
 using CommunityToolkit.Mvvm.ComponentModel;
+using FluentAte.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,8 @@ namespace FluentAte.ViewModels
     {
         public TestStore TestStore { get; set; }
 
+        public AppStore AppStore { get; set; }  
+
         private readonly IServiceProvider _serviceProvider;
 
         [ObservableProperty]
@@ -26,12 +29,13 @@ namespace FluentAte.ViewModels
         [ObservableProperty]
         private ICollection<object> _footerMenuItems = new ObservableCollection<object>();
 
-        public MainWindowViewModel(IServiceProvider serviceProvider, TestStore testStore)
+        public MainWindowViewModel(IServiceProvider serviceProvider, TestStore testStore, AppStore appStore)
         {
             _serviceProvider = serviceProvider;
             TestStore = testStore;
+            AppStore = appStore;
 
-            _applicationTitle = "WPF UI Gallery";
+            _applicationTitle = "Fluent ATE";
 
             _menuItems = new ObservableCollection<object>
             {

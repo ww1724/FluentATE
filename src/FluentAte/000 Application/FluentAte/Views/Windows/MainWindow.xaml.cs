@@ -1,59 +1,39 @@
 ﻿using ATE.Common.Contracts;
+using FluentAte.Services;
 using FluentAte.ViewModels;
 using FluentAte.Views.Pages;
+using HandyControl.Controls;
 using System;
 using System.Windows;
-using Wpf.Ui.Contracts;
-using Wpf.Ui.Controls.Navigation;
+using System.Windows.Navigation;
 
 namespace FluentAte.Views.Windows;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : IWindow
+public partial class MainWindow : HandyControl.Controls.Window, IWindow
 {
-    public MainWindow(MainWindowViewModel viewModel, INavigationService navigationService,
-        IServiceProvider serviceProvider, ISnackbarService snackbarService, IContentDialogService contentDialogService)
+    public MainWindow(MainWindowViewModel viewModel, AppNavigationService navigationService, IServiceProvider serviceProvider)
     {
-        Wpf.Ui.Appearance.Watcher.Watch(this);
 
         ViewModel = viewModel;
         DataContext = this;
 
         InitializeComponent();
 
-        snackbarService.SetSnackbarPresenter(SnackbarPresenter);
-        navigationService.SetNavigationControl(NavigationView);
-        contentDialogService.SetContentPresenter(RootContentDialog);
-
-        NavigationView.SetServiceProvider(serviceProvider);
-        NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(DashboardPage));
+        navigationService.SetNavigationContainer(NavigationContainer);
+        navigationService.SetServiceProvider(serviceProvider);
+        navigationService.Navigate(typeof(DashboardPage));
+        WindowAttach.SetIgnoreAltF4(this, true);
     }
 
     public MainWindowViewModel ViewModel { get; }
 
-    private bool _isUserClosedPane;
-    private bool _isPaneOpenedOrClosedFromCode;
-
-    private void OnNavigationSelectionChanged(object sender, RoutedEventArgs e)
-    {
-        if (sender is not Wpf.Ui.Controls.Navigation.NavigationView navigationView)
-            return;
-
-        NavigationView.HeaderVisibility = navigationView.SelectedItem?.TargetPageType != typeof(DashboardPage)
-            ? Visibility.Visible
-            : Visibility.Collapsed;
-    }
 
     private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        if (_isUserClosedPane)
-            return;
-
-        _isPaneOpenedOrClosedFromCode = true;
-        NavigationView.IsPaneOpen = !(e.NewSize.Width <= 1200);
-        _isPaneOpenedOrClosedFromCode = false;
+     
     }
 
 }

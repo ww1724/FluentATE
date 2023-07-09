@@ -7,4 +7,22 @@
 	  <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\icon.png" />
+    <None Remove="Resources\iconfont.ttf" />
+    <None Remove="Resources\lxwk.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\iconfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\lxwk.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>

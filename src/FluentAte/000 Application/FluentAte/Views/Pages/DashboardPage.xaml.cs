@@ -1,4 +1,5 @@
-﻿using Wpf.Ui.Controls.Navigation;
+﻿using System.Windows.Controls;
+using Wpf.Ui.Controls.Navigation;
 
 namespace FluentAte.Views.Pages
 {
@@ -17,6 +18,11 @@ namespace FluentAte.Views.Pages
             ViewModel = viewModel;
             DataContext = this;
             InitializeComponent();
+        }
+
+        private void ListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            (sender as ListView).SelectedItem = null;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using ATE.Service;
 using ATE.Share.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 
 namespace ATE.Share.Stores
@@ -9,6 +10,9 @@ namespace ATE.Share.Stores
     {
         [ObservableProperty]
         private TestingRecord record;
+
+        [ObservableProperty]
+        private bool isTesting;
 
         public TestStore(DbService dbService)
         {
@@ -42,6 +46,19 @@ namespace ATE.Share.Stores
                 new TestingStep() { Title = "变压器放电"},
                 new TestingStep() { Title = "变压器放电"},
             };
+        }
+
+        [RelayCommand]
+        private void StartTest()
+        {
+            IsTesting = true;
+        }
+
+
+        [RelayCommand]
+        private void StopTest()
+        {
+            IsTesting = false;
         }
     }
 }

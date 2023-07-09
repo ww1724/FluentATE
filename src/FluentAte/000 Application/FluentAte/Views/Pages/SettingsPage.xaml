@@ -1,4 +1,4 @@
-﻿<Page
+﻿<UserControl
     x:Class="FluentAte.Views.Pages.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,7 +7,6 @@
     xmlns:local="clr-namespace:FluentAte.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="SettingsPage"
     d:DataContext="{d:DesignInstance local:SettingsPage,
                                      IsDesignTimeCreatable=False}"
     d:DesignHeight="450"
@@ -16,9 +15,9 @@
     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     mc:Ignorable="d">
 
-    <Page.Resources>
+    <UserControl.Resources>
         <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
-    </Page.Resources>
+    </UserControl.Resources>
 
 
     <StackPanel Margin="56,0">
@@ -49,4 +48,4 @@
             Text="About FluentAte" />
         <TextBlock Margin="0,12,0,0" Text="{Binding ViewModel.AppVersion, Mode=OneWay}" />
     </StackPanel>
-</Page>
+</UserControl>
