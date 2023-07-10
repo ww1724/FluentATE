@@ -14,7 +14,7 @@
         <StackPanel>
             <ui:CardExpander  Icon="{ui:SymbolIcon AppRecent24}" IsExpanded="True">
                 <ui:CardExpander.Header>
-                    <Grid Background="Red" >
+                    <Grid>
                         <ui:TextBlock HorizontalAlignment="Left" Text="设备管理" FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
@@ -85,6 +85,11 @@
                                     </ui:CardAction>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
+                                    <Setter Property="BorderThickness" Value="0 2 0 0" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
                         </ListView>
 
                         <!--<ui:TextBlock Text="设备列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle" />-->

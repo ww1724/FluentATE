@@ -44,7 +44,10 @@ namespace FluentAte.Views.Pages.Manage
             _draggedItem = sender as ListViewItem;
             if (_draggedItem == null) return;
             //var itemIndex = CodeStepListView.ItemContainerGenerator.IndexFromContainer(_draggedItem as DependencyObject);
-            DragDrop.DoDragDrop(CodeStepListView, _draggedItem.DataContext, DragDropEffects.Copy);
+            if (Keyboard.IsKeyDown(Key.LeftAlt))
+            {
+                DragDrop.DoDragDrop(CodeStepListView, _draggedItem.DataContext, DragDropEffects.Copy);
+            }
         }
 
 
@@ -66,6 +69,11 @@ namespace FluentAte.Views.Pages.Manage
             if (target == _draggedItem) return;
             ViewModel.TestStore.Record.Steps.Remove(_draggedItem.DataContext as TestingStep);
             ViewModel.TestStore.Record.Steps.Insert(CodeStepListView.Items.IndexOf(target.DataContext), e.Data.GetData(typeof(TestingStep)) as TestingStep);
+
+            foreach (var i in FindVisualChild<ListViewItem>(CodeStepListView))
+            {
+                i.BorderBrush = Brushes.Transparent;
+            }
         }
 
         static List<T> FindVisualChild<T>(DependencyObject obj) where T : DependencyObject

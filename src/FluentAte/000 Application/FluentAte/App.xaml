@@ -13,7 +13,7 @@
                 <ui:ThemesDictionary Theme="Light" />
                 <ui:ControlsDictionary />
 
-                <hc:ThemeResources RequestedTheme="Light" AccentColor="Purple"/>
+                <hc:ThemeResources RequestedTheme="Light" AccentColor="#228C80"/>
                 <hc:Theme/>
 
                 

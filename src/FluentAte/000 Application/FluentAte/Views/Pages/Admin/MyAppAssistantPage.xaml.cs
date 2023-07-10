@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentAte.ViewModels.Pages.Admin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.Ui.Controls.Navigation;
 
 namespace FluentAte.Views.Pages.Admin
 {
     /// <summary>
-    /// HomePage.xaml 的交互逻辑
+    /// MyAppAssistantPage.xaml 的交互逻辑
     /// </summary>
-    public partial class HomePage : Page
+    public partial class MyAppAssistantPage : INavigableView<MyAppAssistantViewModel>
     {
-        public HomePage()
+        public MyAppAssistantViewModel ViewModel
         {
+            get;
+        }
+
+        public MyAppAssistantPage(MyAppAssistantViewModel viewModel)
+        {
+            ViewModel = viewModel;
+            DataContext = this;
             InitializeComponent();
         }
     }

@@ -21,6 +21,9 @@
             <TextBlock VerticalAlignment="Center" Text="&#xe6bc;" FontFamily="{StaticResource IconFontFamily}" FontSize="16" Foreground="{StaticResource PrimaryTextBrush}"/>
             <TextBlock Text="{Binding ViewModel.ApplicationTitle}" VerticalAlignment="Center" Margin="5 0 0 0" FontWeight="Black" FontFamily="{StaticResource LxwkFontFamily}"/>
             <Button Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AlignHStretchGeometry}" Command="{Binding ViewModel.AppStore.SwitchLeftDrawerCommand}"/>
+            <hc:Gravatar Id="123456" Height="32" Background="Transparent"/>
+            <TextBlock Text="切换用户" FontSize="12" VerticalAlignment="Center" Margin="-15 0 0 0" Cursor="Hand"/>
+
         </StackPanel>
     </hc:Window.NonClientAreaContent>
 

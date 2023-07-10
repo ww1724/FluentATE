@@ -31,23 +31,52 @@
                                 <Button Height="32" Content="开始测试"  hc:IconElement.Geometry="{StaticResource NewGeometry}"  
                                 IsEnabled="{Binding ViewModel.TestStore.IsTesting, Converter={StaticResource ReverseBoolConverter}}"
                                 Command="{Binding ViewModel.TestStore.StartTestCommand}" />
-                                <Button Margin="5 0" Content="停止测试"  Height="32"
+                                <Button Margin="5 0" Height="32"
                                     Command="{Binding ViewModel.TestStore.StopTestCommand}"
-                                    IsEnabled="{Binding ViewModel.TestStore.IsTesting}"/>
+                                    IsEnabled="{Binding ViewModel.TestStore.IsTesting}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <hc:LoadingCircle DotDiameter="3"  DotSpeed="2" DotDelayTime="60"  Height="16" NeedHidden="True" IsRunning="{Binding ViewModel.TestStore.IsTesting}"/>
+                                        <TextBlock Text="停止测试"/>
+                                    </StackPanel>
+                                </Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <hc:ElementGroup>
-                                    <Button Content="选择全部" Command="{Binding ViewModel.AllToTestCommand}" />
-                                    <Button Content="全部不选" Command="{Binding ViewModel.AllNotToTestCommand}" />
-                                    <Button Content="展开全部" Command="{Binding ViewModel.ExpandAllItemsCommand}" />
-                                    <Button Content="收缩全部" Command="{Binding ViewModel.ShrinkAllItemsCommand}" />
+                                    <Button Content="选择全部" Command="{Binding ViewModel.AllToTestCommand}">
+                                        <hc:FloatingBlock.ContentTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="&#xe6c2;" FontFamily="{StaticResource IconFontFamily}" Foreground="{DynamicResource PrimaryBrush}"/>
+                                            </DataTemplate>
+                                        </hc:FloatingBlock.ContentTemplate>
+                                    </Button>
+                                    <Button Content="全部不选" Command="{Binding ViewModel.AllNotToTestCommand}" >
+                                        <hc:FloatingBlock.ContentTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="&#xe6c2;" FontFamily="{StaticResource IconFontFamily}" Foreground="{DynamicResource PrimaryBrush}"/>
+                                            </DataTemplate>
+                                        </hc:FloatingBlock.ContentTemplate>
+                                    </Button>
+                                    <Button Content="展开全部" Command="{Binding ViewModel.ExpandAllItemsCommand}" >
+                                        <hc:FloatingBlock.ContentTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="&#xe6c2;" FontFamily="{StaticResource IconFontFamily}" Foreground="{DynamicResource PrimaryBrush}"/>
+                                            </DataTemplate>
+                                        </hc:FloatingBlock.ContentTemplate>
+                                    </Button>
+                                    <Button Content="收缩全部" Command="{Binding ViewModel.ShrinkAllItemsCommand}" >
+                                        <hc:FloatingBlock.ContentTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="&#xe6c2;" FontFamily="{StaticResource IconFontFamily}" Foreground="{DynamicResource PrimaryBrush}"/>
+                                            </DataTemplate>
+                                        </hc:FloatingBlock.ContentTemplate>
+                                    </Button>
                                 </hc:ElementGroup>
                             </StackPanel>
                         </Grid>
                     </ui:CardExpander.Header>
                     <Border Background="{StaticResource SecondaryRegionBrush}" Padding="15" CornerRadius="0 0 8 8">
                         <Grid >
-                            <TextBlock Text="123456" FontSize="32"/>
+                            <TextBlock Text="123456" FontSize="32" />
                         </Grid>
                     </Border>
                 </ui:CardExpander>

@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:FluentAte.Views.Pages.Manage"
       d:DataContext="{d:DesignInstance Type=local:CodeEditorPage}"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CodeEditor">
@@ -15,8 +16,6 @@
     </Page.Resources>
 
     <Grid Margin="20 0">
-
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="auto"/>
@@ -29,7 +28,7 @@
             </Grid.RowDefinitions>
 
             <ui:TextBlock Grid.Row="0" Grid.Column="0" Text="程序编辑" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle" />
-            <ListView x:Name="CodeStepListView" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="1000" AllowDrop="True">
+            <ListView x:Name="CodeStepListView" Grid.Row="1" Background="Transparent" BorderThickness="0" Grid.Column="0" ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="1000" AllowDrop="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="0 -5" BorderBrush="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=BorderBrush}"  
@@ -71,6 +70,7 @@
 
         <Grid  Grid.Column="1" Grid.Row="0" Width="300">
             <ui:Badge Content="命令列表"/>
+            <hc:PropertyGrid SelectedObject="{Binding ViewModel.TestStore.Record.Steps}" />
         </Grid>
     </Grid>
 </Page>
