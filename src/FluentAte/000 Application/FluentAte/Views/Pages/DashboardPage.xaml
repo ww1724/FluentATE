@@ -83,10 +83,10 @@
             </Border>
            
             <Border Grid.Row="2" Margin="0 5">
-                <ListView SelectionChanged="ListView_SelectionChanged" ScrollViewer.CanContentScroll="False"  ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="100">
+                <ListView SelectionChanged="ListView_SelectionChanged" Background="Transparent"  Padding="10" ScrollViewer.CanContentScroll="False"  ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="100">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ui:CardExpander IsExpanded="{Binding IsExpand}" Style="{StaticResource DefaultUiCardExpanderStyle}">
+                            <ui:CardExpander Margin="0 -2" IsExpanded="{Binding IsExpand}" Style="{StaticResource DefaultUiCardExpanderStyle}">
                                 <ui:CardExpander.Header>
                                     <Grid>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
