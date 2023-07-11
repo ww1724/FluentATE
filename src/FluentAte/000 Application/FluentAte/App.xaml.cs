@@ -78,10 +78,13 @@ namespace FluentAte
                 services.AddScoped<Views.Pages.AdminPage>();
                 services.AddScoped<ViewModels.Pages.AdminViewModel>();
                 services.AddScoped<ViewModels.Pages.Admin.HomeViewModel>();
+                services.AddScoped<Views.Pages.Admin.StandardPackagePage>();
+                services.AddScoped<ViewModels.Pages.Admin.StandardPackageViewModel>();
                 services.AddScoped<Views.Pages.Admin.DeviceManagePage>();
                 services.AddScoped<ViewModels.Pages.Admin.DeviceManageViewModel>();
                 services.AddSingleton<Views.Pages.Admin.MyAppAssistantPage>();
                 services.AddSingleton<ViewModels.Pages.Admin.MyAppAssistantViewModel>();
+
 
                 //about
                 services.AddTransient<ViewModels.Pages.AboutViewModel>();

@@ -1,0 +1,125 @@
+﻿<Page x:Class="FluentAte.Views.Pages.Admin.StandardPackagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
+      xmlns:admin="clr-namespace:FluentAte.Views.Pages.Admin" d:DataContext="{d:DesignInstance Type=admin:StandardPackagePage}"
+      mc:Ignorable="d" 
+      Height="auto"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StandardPackagePage">
+
+    <Grid Margin="15 10" VerticalAlignment="Top" >
+        <ScrollViewer>
+            <StackPanel>
+                <ui:CardExpander x:Name="DevicePackage"  Icon="{ui:SymbolIcon AppRecent24}" IsExpanded="False">
+                    <ui:CardExpander.Header>
+                        <Grid>
+                            <ui:TextBlock HorizontalAlignment="Left" Text="仪器设备包" FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                    <ui:ProgressRing Visibility="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource  BoolToVisibilityConverter}}" Progress="88" Height="15" Width="15" IsIndeterminate="True"/>
+                                    <ui:Button Content="扫描设备包" Icon="{ui:SymbolIcon ArrowClockwise12}" Margin="5 0" Command="{Binding ViewModel.DeviceStore.DetectDeviceCommand}" IsEnabled="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource ReverseBoolConverter}}"/>
+                                </StackPanel>
+                                <!--<ui:Button Content="扫描设备包" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowSync16}"  HorizontalAlignment="Center"/>-->
+                                <ui:Button Content="添加设备" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Center" />
+                                <ui:Button Content="导出数据" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardExpander.Header>
+
+
+                    <ScrollViewer MaxHeight="600">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+
+                                <ui:TextBlock Text="支持设备包列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle"/>
+                                <ui:Badge Margin="10" HorizontalAlignment="Center" Width="30">
+                                    <TextBlock Text="{Binding ViewModel.DeviceStore.AvailableDevicePackageNumber}"  VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </ui:Badge>
+                            </StackPanel>
+
+                            <ListView ItemsSource="{Binding ViewModel.DeviceStore.SupportDevicePackages}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ui:CardAction Icon="{ui:SymbolIcon AirplaneTakeOff16}" Margin="0 5">
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <!--<ui:TextBlock Text="{Binding DeviceGoupId}"/>-->
+                                                    <ui:TextBlock Text="{Binding  Name}" FontTypography="BodyStrong"/>
+                                                    <ui:TextBlock Text="{Binding Description}" FontTypography="Caption"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
+                                        <Setter Property="BorderThickness" Value="0 2 0 0" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+
+                            <!--<ui:TextBlock Text="设备列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle" />-->
+                        </StackPanel>
+                    </ScrollViewer>
+                </ui:CardExpander>
+
+                <ui:CardExpander x:Name="TestingPackage" Margin="0 5"  Icon="{ui:SymbolIcon AppRecent24}" IsExpanded="False">
+                    <ui:CardExpander.Header>
+                        <Grid>
+                            <ui:TextBlock HorizontalAlignment="Left" Text="测试拓展包" FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                    <ui:ProgressRing Visibility="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource  BoolToVisibilityConverter}}" Progress="88" Height="15" Width="15" IsIndeterminate="True"/>
+                                    <ui:Button Content="扫描设备包" Icon="{ui:SymbolIcon ArrowClockwise12}" Margin="5 0" Command="{Binding ViewModel.DeviceStore.DetectDeviceCommand}" IsEnabled="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource ReverseBoolConverter}}"/>
+                                </StackPanel>
+                                <ui:Button Content="添加设备" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon Add12}"  HorizontalAlignment="Center" />
+                                <ui:Button Content="导出数据" FontSize="16" Margin="5 0" Icon="{ui:SymbolIcon ArrowExportUp24}" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardExpander.Header>
+
+
+                    <ScrollViewer MaxHeight="600">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+
+                                <ui:TextBlock Text="支持设备包列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle"/>
+                                <ui:Badge Margin="10" HorizontalAlignment="Center" Width="30">
+                                    <TextBlock Text="{Binding ViewModel.DeviceStore.AvailableDevicePackageNumber}"  VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </ui:Badge>
+                            </StackPanel>
+
+                            <ListView ItemsSource="{Binding ViewModel.DeviceStore.SupportDevicePackages}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ui:CardAction Icon="{ui:SymbolIcon AirplaneTakeOff16}" Margin="0 5">
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <!--<ui:TextBlock Text="{Binding DeviceGoupId}"/>-->
+                                                    <ui:TextBlock Text="{Binding  Name}" FontTypography="BodyStrong"/>
+                                                    <ui:TextBlock Text="{Binding Description}" FontTypography="Caption"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
+                                        <Setter Property="BorderThickness" Value="0 2 0 0" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+
+                            <!--<ui:TextBlock Text="设备列表" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle" />-->
+                        </StackPanel>
+                    </ScrollViewer>
+                </ui:CardExpander>
+            </StackPanel>
+
+        </ScrollViewer>
+       
+    </Grid>
+</Page>

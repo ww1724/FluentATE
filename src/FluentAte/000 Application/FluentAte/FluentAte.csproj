@@ -45,6 +45,9 @@
     <Compile Update="Views\Pages\AboutPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Pages\Admin\DeviceManagePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

@@ -7,13 +7,13 @@ namespace FluentAte.Views.Pages.Admin
     /// <summary>
     /// DeviceManagePage.xaml 的交互逻辑
     /// </summary>
-    public partial class DeviceManagePage : INavigableView<DeviceManageViewModel>
+    public partial class StandardPackagePage : INavigableView<StandardPackageViewModel>
     {
-        public DeviceManageViewModel ViewModel
+        public StandardPackageViewModel ViewModel
         {
             get;
         }
-        public DeviceManagePage(DeviceManageViewModel viewModel)
+        public StandardPackagePage(StandardPackageViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = this;

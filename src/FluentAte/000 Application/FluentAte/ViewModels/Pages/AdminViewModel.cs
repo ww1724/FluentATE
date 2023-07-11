@@ -15,8 +15,8 @@ namespace FluentAte.ViewModels.Pages
             subMenus = new ObservableCollection<object>()
             {
                 //new NavigationViewItem("主页", SymbolRegular.Home48, typeof(Views.Pages.Admin.HomePage)),
-                new NavigationViewItem("设备管理", SymbolRegular.AppRecent24, typeof(Views.Pages.Admin.DeviceManagePage)),
-                new NavigationViewItem("测试项目", SymbolRegular.AppRecent24, typeof(Views.Pages.Admin.DeviceManagePage)),
+                new NavigationViewItem("标准包", SymbolRegular.AppRecent24, typeof(Views.Pages.Admin.StandardPackagePage)),
+                new NavigationViewItem("设备控制", SymbolRegular.AppRecent24, typeof(Views.Pages.Admin.DeviceManagePage)),
                 new NavigationViewItem("控制助手", SymbolRegular.GiftCardMoney20, typeof(Views.Pages.Admin.MyAppAssistantPage)),
                 //new NavigationViewItem("权限管理", SymbolRegular.AppRecent24, typeof(Views.Pages.Admin.DeviceManagePage)),
                 //new NavigationViewItem("服务管理", SymbolRegular.AppRecent24, typeof(Views.Pages.Admin.DeviceManagePage)),

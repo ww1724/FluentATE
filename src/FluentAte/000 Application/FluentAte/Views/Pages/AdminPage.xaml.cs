@@ -23,7 +23,7 @@ namespace FluentAte.Views.Pages
             InitializeComponent();
 
             NavigationView.SetServiceProvider(serviceProvider);
-            NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(DeviceManagePage));
+            NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(StandardPackagePage));
 
         }
     }

@@ -8,14 +8,14 @@
       mc:Ignorable="d" 
       Height="auto"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="DeviceManagePage">
+      Title="StandardPackagePage">
 
     <Grid Margin="15 10" VerticalAlignment="Top" >
         <StackPanel>
             <ui:CardExpander  Icon="{ui:SymbolIcon AppRecent24}" IsExpanded="True">
                 <ui:CardExpander.Header>
                     <Grid>
-                        <ui:TextBlock HorizontalAlignment="Left" Text="设备管理" FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
+                        <ui:TextBlock HorizontalAlignment="Left" Text="仪器设备包" FontWeight="Medium" FontTypography="Subtitle"   VerticalAlignment="Center"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                                 <ui:ProgressRing Visibility="{Binding ViewModel.DeviceStore.IsDetectingDevice, Converter={StaticResource  BoolToVisibilityConverter}}" Progress="88" Height="15" Width="15" IsIndeterminate="True"/>
