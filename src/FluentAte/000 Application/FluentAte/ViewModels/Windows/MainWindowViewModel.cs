@@ -1,5 +1,6 @@
 ﻿using ATE.Share.Stores;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using FluentAte.Stores;
 using System;
 using System.Collections.Generic;
@@ -45,24 +46,11 @@ namespace FluentAte.ViewModels
                 new NavigationViewItem("关于", SymbolRegular.AnimalRabbit32, typeof(Views.Pages.AboutPage))
             };
 
-            var toggleThemeNavigationViewItem = new NavigationViewItem
-            {
-                Content = "切换",
-                Icon = new SymbolIcon { Symbol = SymbolRegular.BrightnessHigh16 }
-            };
-            toggleThemeNavigationViewItem.Click += OnToggleThemeClicked;
-            _footerMenuItems.Add(toggleThemeNavigationViewItem);
-            _footerMenuItems.Add(new NavigationViewItem("基础设置", SymbolRegular.Settings48, typeof(Views.Pages.SettingsPage))); 
-        
-        
         }
 
-        private void OnToggleThemeClicked(object sender, RoutedEventArgs e)
-        {
-            var currentTheme = Wpf.Ui.Appearance.Theme.GetAppTheme();
 
-            Wpf.Ui.Appearance.Theme.Apply(currentTheme == Wpf.Ui.Appearance.ThemeType.Light ? Wpf.Ui.Appearance.ThemeType.Dark : Wpf.Ui.Appearance.ThemeType.Light);
-        }
+
+
     }
 }
 

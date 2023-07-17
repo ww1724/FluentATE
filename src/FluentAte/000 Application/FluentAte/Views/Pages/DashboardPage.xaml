@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
 
             <Border Margin="0 0 0 10">
-                <ui:CardExpander>
+                <ui:CardExpander IsExpanded="False" >
                     <ui:CardExpander.Header>
                         <Grid>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">

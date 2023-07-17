@@ -36,8 +36,22 @@
                     </hc:SimplePanel>
                 </hc:Drawer>
                 <hc:TransitioningContentControl x:Name="NavigationContainer" />
+                <hc:NotifyIcon>
+                    <hc:NotifyIcon.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="打开桌面宠物" Command="{Binding ShowAppDesktopPetCommand}"/>
+                            <MenuItem Header="检查更新软件" />
+                            <MenuItem Header="打开软件" />
+                            <MenuItem Header="退出软件" Command="{Binding CloseApplicationCommand}"/>
+                        </ContextMenu>
+                    </hc:NotifyIcon.ContextMenu>
 
-
+                    <hc:Interaction.Triggers>
+                        <hc:EventTrigger EventName="MouseDoubleClick">
+                            <hc:EventToCommand Command="{Binding ShowWindowCommand}" />
+                        </hc:EventTrigger>
+                    </hc:Interaction.Triggers>
+                </hc:NotifyIcon>
             </hc:SimplePanel>
         </Border>
     </hc:TransitioningContentControl>
