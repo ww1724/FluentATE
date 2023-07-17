@@ -12,6 +12,8 @@ namespace FluentAte.ViewModels.Pages.Admin
     {
         public DeviceStore DeviceStore { get; set; }
 
+
+
         public DeviceManageViewModel(DeviceStore deviceStore)
         {
             DeviceStore = deviceStore;

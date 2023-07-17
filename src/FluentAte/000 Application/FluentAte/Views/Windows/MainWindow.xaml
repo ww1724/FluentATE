@@ -17,7 +17,7 @@
                  WindowStartupLocation="CenterScreen"
                  mc:Ignorable="d">
     <hc:Window.NonClientAreaContent >
-        <StackPanel Orientation="Horizontal" Height="32" Background="{StaticResource DefaultBrush}">
+        <StackPanel Orientation="Horizontal" Height="32" Background="{StaticResource DefaultBrush}" HorizontalAlignment="Left">
             <TextBlock VerticalAlignment="Center" Text="&#xe6bc;" FontFamily="{StaticResource IconFontFamily}" FontSize="16" Foreground="{StaticResource PrimaryTextBrush}"/>
             <TextBlock Text="{Binding ViewModel.ApplicationTitle}" VerticalAlignment="Center" Margin="5 0 0 0" FontWeight="Black" FontFamily="{StaticResource LxwkFontFamily}"/>
             <Button Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AlignHStretchGeometry}" Command="{Binding ViewModel.AppStore.SwitchLeftDrawerCommand}"/>

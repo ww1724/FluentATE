@@ -24,7 +24,6 @@ namespace FluentAte.Views.Pages
 
             NavigationView.SetServiceProvider(serviceProvider);
             NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(StandardPackagePage));
-
         }
     }
 }

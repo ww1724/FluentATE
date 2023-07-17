@@ -35,6 +35,7 @@ public partial class MainWindow : HandyControl.Controls.Window, IWindow
         WindowAttach.SetIgnoreAltF4(this, true);
 
         _pet = new DesktopPet();
+        _pet.DataContext = this;
         Sprite.Show(_pet);
     }
 

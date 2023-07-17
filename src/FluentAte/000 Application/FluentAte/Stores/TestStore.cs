@@ -14,6 +14,9 @@ namespace ATE.Share.Stores
         [ObservableProperty]
         private bool isTesting;
 
+        [ObservableProperty]
+        private string a;
+
         public TestStore(DbService dbService)
         {
 
@@ -23,7 +26,7 @@ namespace ATE.Share.Stores
 
             OnPropertyChanged(nameof(Record));
 
-
+            A = "测试中";
         }
 
         public void InitializeRecord(ref TestingRecord record)

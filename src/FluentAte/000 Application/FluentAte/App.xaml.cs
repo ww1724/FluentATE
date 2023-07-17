@@ -38,6 +38,7 @@ namespace FluentAte
                 //services.AddSingleton<INavigationService, Wpf.Ui.Services.NavigationService>();
                 //services.AddSingleton<ISnackbarService, SnackbarService>();
                 services.AddSingleton<WindowsProviderService>();
+                
 
                 // MyServices
                 // Level 1
