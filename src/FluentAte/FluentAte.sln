@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATE.Common.Test", "001 Comm
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "007 Packages", "007 Packages", "{1B20FC22-AB62-46AA-8008-9D73657959F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATE.Package.Device.Standard", "007 Packages\ZR.Automation.DevicePackage.ATEStandard\ATE.Package.Device.Standard.csproj", "{610D3899-9489-43CC-B51B-D06C43D4EA9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATE.Package.Normal.Standard", "007 Packages\ZR.Automation.DevicePackage.ATEStandard\ATE.Package.Normal.Standard.csproj", "{610D3899-9489-43CC-B51B-D06C43D4EA9A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATE.Share", "001 Commons\ATE.Share\ATE.Share.csproj", "{4DBE697A-860E-4881-AF0A-2DE56D5EFBEE}"
 EndProject

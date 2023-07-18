@@ -40,6 +40,7 @@ namespace FluentAte.Services
           _frame.Content = _serviceProvider.GetService(type);
         }
 
+
         public void SetNavigationContainer(ContentControl contentControl)
         {
             _frame = contentControl;

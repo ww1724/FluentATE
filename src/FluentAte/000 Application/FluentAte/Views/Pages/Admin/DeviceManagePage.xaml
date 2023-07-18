@@ -12,7 +12,7 @@
       Title="StandardPackagePage">
     <hc:TransitioningContentControl>
         <Grid Margin="15 10" VerticalAlignment="Stretch" >
-            <TabControl x:Name="DeviceGroupList" TabStripPlacement="Left"  Style="{StaticResource TabControlSliding}" ItemsSource="{Binding a}">
+            <TabControl x:Name="DeviceGroupList" TabStripPlacement="Top"  Style="{StaticResource TabControlSliding}" ItemsSource="{Binding a}">
                 <TabItem x:Name="OverviewBox" >
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
@@ -51,7 +51,7 @@
                 </TabItem>
             </TabControl>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Button x:Name="AddDeviceGroupBtn" Height="40" Style="{StaticResource ButtonPrimary}">
+                <Button x:Name="AddDeviceGroupBtn" Height="35" Style="{StaticResource ButtonPrimary}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xe6d7;" FontSize="16" FontFamily="{StaticResource IconFontFamily}" VerticalAlignment="Center"/>
                         <TextBlock Text="添加设备" VerticalAlignment="Bottom" Margin="10 0 0 0"/>

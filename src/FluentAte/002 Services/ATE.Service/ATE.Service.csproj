@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Serilog" Version="3.0.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="7.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="SqlSugarCore" Version="5.1.4.86" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />

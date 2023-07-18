@@ -5,6 +5,7 @@
                  xmlns:local="clr-namespace:FluentAte.Views.Windows"
                 xmlns:ctr="clr-namespace:FluentAte.Controls"
                  xmlns:hc="https://handyorg.github.io/handycontrol"
+           xmlns:page="clr-namespace:FluentAte.Views.Pages"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                 d:DataContext="{d:DesignInstance Type=local:MainWindow}"
                 Width="1450"
@@ -17,13 +18,25 @@
                  WindowStartupLocation="CenterScreen"
                  mc:Ignorable="d">
     <hc:Window.NonClientAreaContent >
-        <StackPanel Orientation="Horizontal" Height="32" Background="{StaticResource DefaultBrush}" HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="32" Background="{StaticResource DefaultBrush}" HorizontalAlignment="Left">
+            <Menu>
+                <MenuItem Height="32">
+                    <MenuItem.Header>
+                        <TextBlock Text="&#xe6af;" FontWeight="Bold" FontFamily="{StaticResource IconFontFamily}" VerticalAlignment="Center"/> 
+                    </MenuItem.Header>
+
+                    <MenuItem Header="首页" Command="{Binding ViewModel.NavigationToCommand}" CommandParameter="{x:Type page:DashboardPage}"></MenuItem>
+                    <MenuItem Header="编辑页" Command="{Binding ViewModel.NavigationToCommand}" CommandParameter="{x:Type page:ManagePage}"></MenuItem>
+                    <MenuItem Header="管理页" Command="{Binding ViewModel.NavigationToCommand}" CommandParameter="{x:Type page:AdminPage}"></MenuItem>
+                    <MenuItem Header="帮助页" Command="{Binding ViewModel.NavigationToCommand}" CommandParameter="{x:Type page:AboutPage}"></MenuItem>
+                </MenuItem>
+            </Menu>
             <TextBlock VerticalAlignment="Center" Text="&#xe6bc;" FontFamily="{StaticResource IconFontFamily}" FontSize="16" Foreground="{StaticResource PrimaryTextBrush}"/>
             <TextBlock Text="{Binding ViewModel.ApplicationTitle}" VerticalAlignment="Center" Margin="5 0 0 0" FontWeight="Black" FontFamily="{StaticResource LxwkFontFamily}"/>
-            <Button Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AlignHStretchGeometry}" Command="{Binding ViewModel.AppStore.SwitchLeftDrawerCommand}"/>
+            <!--<Button Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AlignHStretchGeometry}" Command="{Binding ViewModel.AppStore.SwitchLeftDrawerCommand}"/>-->
             <hc:Gravatar Id="123456" Height="32" Background="Transparent"/>
             <TextBlock Text="切换用户" FontSize="12" VerticalAlignment="Center" Margin="-15 0 0 0" Cursor="Hand"/>
-
+        
         </StackPanel>
     </hc:Window.NonClientAreaContent>
 

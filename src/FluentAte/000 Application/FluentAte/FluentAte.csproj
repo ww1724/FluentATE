@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="HandyControls" Version="3.4.5" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="7.0.0" />
     <PackageReference Include="WpfExtensions.Binding" Version="1.0.1" />
     <PackageReference Include="WpfExtensions.Xaml" Version="1.2.0" />
   </ItemGroup>

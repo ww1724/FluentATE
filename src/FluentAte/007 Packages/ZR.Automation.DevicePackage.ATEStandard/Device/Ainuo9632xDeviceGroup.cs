@@ -1,12 +1,12 @@
 ﻿using ATE.Common.Test;
 using System.ComponentModel.Composition;
 
-namespace ATE.Package.Device.Standard
+namespace ATE.Package.Normal.Standard.Device
 {
-    [Export("Device.DW81C", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [Export("Device.Ainuo9632x", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
     [Export(typeof(IDeviceGroup))]
-    [DeviceGroupMetadata(id: "Device.DW81C", name: "创鸿DW81-C电流电压表", description: "电流电压表,支持485")]
-    public class DW81CGroup : IDeviceGroup
+    [DeviceGroupMetadata(id: "Device.Ainuo9632x", name: "艾诺耐压测试仪", description: "耐压|绝缘测试, 选配485/232")]
+    public class Ainuo9632xDeviceGroup : IDeviceGroup
     {
         public Dictionary<int, object> Devices { get; set; }
 
@@ -14,7 +14,7 @@ namespace ATE.Package.Device.Standard
 
         public string ErrorString { get; private set; } = "";
 
-        public DW81CGroup()
+        public Ainuo9632xDeviceGroup()
         {
         }
 

@@ -1,7 +1,7 @@
 ﻿using ATE.Common.Test;
 using System.ComponentModel.Composition;
 
-namespace ATE.Package.Device.Standard
+namespace ATE.Package.Normal.Standard.Device
 {
     [Export("Device.PM9911", typeof(IDeviceGroup)), PartCreationPolicy(CreationPolicy.NonShared)]
     [Export(typeof(IDeviceGroup))]

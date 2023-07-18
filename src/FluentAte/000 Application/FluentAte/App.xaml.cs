@@ -7,6 +7,7 @@ using FluentAte.Stores;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -31,6 +32,8 @@ namespace FluentAte
             {
                 // App Host
                 services.AddHostedService<ApplicationHostService>();
+                services.AddSerilog();
+
 
                 // UI Services
                 services.AddSingleton<ViewModels.MainWindowViewModel>();
@@ -96,7 +99,9 @@ namespace FluentAte
 
                 // Configuration
                 services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
-            }).Build();
+            })
+            .UseSerilog()
+            .Build();
 
         /// <summary>
         /// Gets registered service.

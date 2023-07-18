@@ -14,8 +14,12 @@
     <ProjectReference Include="..\..\001 Commons\ATE.Common.Test\ATE.Common.Test.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TestFlow\" />
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command='xcopy "$(ProjectDir)$(OutDir)"  "$(SolutionDir)000 Application\FluentAte\bin\Debug\net6.0-windows\devices\"  /y/e' />
+    <Exec Command="xcopy &quot;$(ProjectDir)$(OutDir)&quot;  &quot;$(SolutionDir)000 Application\FluentAte\bin\Debug\net6.0-windows\devices\&quot;  /y/e" />
   </Target>
 
 </Project>

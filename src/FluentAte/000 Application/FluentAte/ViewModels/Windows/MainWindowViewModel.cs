@@ -1,6 +1,7 @@
 ﻿using ATE.Share.Stores;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FluentAte.Services;
 using FluentAte.Stores;
 using System;
 using System.Collections.Generic;
@@ -17,20 +18,20 @@ namespace FluentAte.ViewModels
     {
         public TestStore TestStore { get; set; }
 
-        public AppStore AppStore { get; set; }  
+        public AppStore AppStore { get; set; }
+
+        private AppNavigationService _navigationService;
 
         private readonly IServiceProvider _serviceProvider;
 
         [ObservableProperty]
         private string _applicationTitle;
 
-        [ObservableProperty]
-        private ICollection<object> _menuItems;
-
-        [ObservableProperty]
-        private ICollection<object> _footerMenuItems = new ObservableCollection<object>();
-
-        public MainWindowViewModel(IServiceProvider serviceProvider, TestStore testStore, AppStore appStore)
+        public MainWindowViewModel(
+            IServiceProvider serviceProvider, 
+            TestStore testStore, 
+            AppStore appStore, 
+            AppNavigationService navigationService)
         {
             _serviceProvider = serviceProvider;
             TestStore = testStore;
@@ -38,18 +39,14 @@ namespace FluentAte.ViewModels
 
             _applicationTitle = "Fluent ATE";
 
-            _menuItems = new ObservableCollection<object>
-            {
-                new NavigationViewItem("测试首页", SymbolRegular.Home24, typeof(Views.Pages.DashboardPage)),
-                new NavigationViewItem("管理页", SymbolRegular.DesktopEdit16, typeof(Views.Pages.ManagePage)),
-                new NavigationViewItem("控制页", SymbolRegular.AccessibilityCheckmark24, typeof(Views.Pages.AdminPage)),
-                new NavigationViewItem("关于", SymbolRegular.AnimalRabbit32, typeof(Views.Pages.AboutPage))
-            };
-
+            _navigationService = navigationService;
         }
 
-
-
+        [RelayCommand]
+        private void NavigationTo(Type path)
+        {
+            _navigationService.Navigate(path);
+        }
 
     }
 }
