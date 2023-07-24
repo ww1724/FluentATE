@@ -1,4 +1,5 @@
-﻿using HandyControl.Tools;
+﻿using HandyControl.Controls;
+using HandyControl.Tools;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

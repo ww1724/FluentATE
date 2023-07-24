@@ -36,8 +36,10 @@ public partial class MainWindow : HandyControl.Controls.Window, IWindow
 
         _pet = new DesktopPet();
         _pet.DataContext = this;
-        
-        Sprite.Show(_pet).WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+        Sprite desktopPet = Sprite.Show(_pet);
+        desktopPet.Left = SystemParameters.WorkArea.Right - _pet.Width - 40;
+        desktopPet.Top = 40;
     }
 
     

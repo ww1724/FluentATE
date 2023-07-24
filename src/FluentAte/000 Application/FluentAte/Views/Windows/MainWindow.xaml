@@ -10,6 +10,7 @@
                 d:DataContext="{d:DesignInstance Type=local:MainWindow}"
                 Width="1450"
                  Height="802"
+           WindowState="Maximized"
                  MinWidth="900"
                  d:DesignHeight="650"
                  d:DesignWidth="1000"

@@ -39,7 +39,7 @@ namespace ATE.Service
             try
             {
                 var c1 = new AssemblyCatalog(System.Reflection.Assembly.GetExecutingAssembly());
-                var c2 = new DirectoryCatalog($"{Directory.GetCurrentDirectory()}\\devices", "ATE.Package*.dll");
+                var c2 = new DirectoryCatalog($"{Directory.GetCurrentDirectory()}\\packages", "ATE.Package*.dll");
                 catalog = new AggregateCatalog(c1, c2);
                 container = new CompositionContainer(catalog);
                 var a = container.GetExports<IDevice, IDictionary<string, object>>();
