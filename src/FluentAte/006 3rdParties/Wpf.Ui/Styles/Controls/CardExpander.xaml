@@ -144,8 +144,14 @@
                                 Background="Transparent"
                                 Foreground="{TemplateBinding Foreground}"
                                 IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                OverridesDefaultStyle="True"
-                                Template="{StaticResource DefaultUiCardExpanderToggleButtonStyle}">
+                                OverridesDefaultStyle="True">
+
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+                                        <Setter Property="Template" Value="{StaticResource DefaultUiCardExpanderToggleButtonStyle}"/>
+                                    </Style>
+                                </ToggleButton.Style>
+                                
                                 <ToggleButton.Content>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -170,6 +176,7 @@
                                     </Grid>
                                 </ToggleButton.Content>
                             </ToggleButton>
+
 
                             <!--  Collapsed content to expand  -->
                             <Border
