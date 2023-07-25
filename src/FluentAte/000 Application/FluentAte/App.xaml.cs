@@ -48,8 +48,6 @@ namespace FluentAte
                 services.AddSingleton<MefService>();
                 services.AddSingleton<DbService>();
                 // Level 2
-                services.AddSingleton<PackageManager>();
-                services.AddSingleton<ConfigManager>();
                 services.AddSingleton<LoggerService>();
                 // Level 3
                 services.AddSingleton<DeviceManager>();
@@ -58,7 +56,6 @@ namespace FluentAte
                 services.AddSingleton<AppStore>();
                 services.AddSingleton<TestStore>();
                 services.AddSingleton<DeviceStore>();
-                services.AddSingleton<ConfigStore>();
 
                 // Main window with navigation
                 services.AddScoped<IWindow, Views.Windows.MainWindow>();

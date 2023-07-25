@@ -37,8 +37,7 @@ namespace ATE.Service
             sugarClient.DbMaintenance.CreateDatabase();
             sugarClient.CodeFirst.InitTables(
                 typeof(UserEntity),
-                typeof(DeviceGroupEntity),
-                typeof(ConfigEntity)
+                typeof(DeviceGroupEntity)
                 );
             if (!sugarClient.Queryable<UserEntity>().Any())
             {

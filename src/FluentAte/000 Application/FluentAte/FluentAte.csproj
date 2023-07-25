@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>10.0</LangVersion>
@@ -11,15 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\pet_bg.png" />
-    <None Remove="Resources\pet_header.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="HandyControls" Version="3.4.5" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="7.0.0" />
-    <PackageReference Include="ValueConverters" Version="3.0.26" />
     <PackageReference Include="WpfExtensions.Binding" Version="1.0.1" />
     <PackageReference Include="WpfExtensions.Xaml" Version="1.2.0" />
   </ItemGroup>
@@ -43,8 +37,6 @@
     </Resource>
     <Resource Include="logo.ico" />
     <Resource Include="logo.png" />
-    <Resource Include="Resources\pet_bg.png" />
-    <Resource Include="Resources\pet_header.png" />
   </ItemGroup>
 
   <ItemGroup>

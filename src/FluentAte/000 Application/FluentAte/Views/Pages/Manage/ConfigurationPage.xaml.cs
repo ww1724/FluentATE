@@ -1,8 +1,4 @@
-﻿using ATE.Common.Configuration.Interfaces;
-using ATE.Common.Configuration.Models;
-using ATE.Service;
-using FluentAte.ViewModels.Pages.Manage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,17 +20,9 @@ namespace FluentAte.Views.Pages.Manage
     /// </summary>
     public partial class ConfigurationPage : Page
     {
-        public ConfigurationViewModel ViewModel
+        public ConfigurationPage()
         {
-            get;
-        }
-
-        public ConfigurationPage(ConfigurationViewModel configurationViewModel)
-        {
-            ViewModel = configurationViewModel;
-            DataContext = this;
             InitializeComponent();
         }
-
     }
 }

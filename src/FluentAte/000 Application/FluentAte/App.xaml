@@ -16,9 +16,8 @@
                 <hc:ThemeResources RequestedTheme="Light" AccentColor="#228C80"/>
                 <hc:Theme/>
 
-                <ResourceDictionary Source="pack://application:,,,/Wpf.Ui;component/Styles/Controls/ListViewItem.xaml"/>
+                
                 <ResourceDictionary Source="pack://application:,,,/ZR.Util.Wpf;component/Resources.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/ZR.Util.Wpf;component/Themes/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

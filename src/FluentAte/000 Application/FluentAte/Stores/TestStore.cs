@@ -2,19 +2,12 @@
 using ATE.Share.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using FluentAte.Models;
 using System.Collections.ObjectModel;
 
 namespace ATE.Share.Stores
 {
     public partial class TestStore : ObservableObject
     {
-        [ObservableProperty]
-        private ObservableCollection<CodeEditorItem> editorItems;
-
-        //[ObservableProperty]
-        //private ObservableCollection<>
-
         [ObservableProperty]
         private TestingRecord record;
 
@@ -34,22 +27,6 @@ namespace ATE.Share.Stores
             OnPropertyChanged(nameof(Record));
 
             A = "测试中";
-
-            EditorItems = new ObservableCollection<CodeEditorItem> { 
-                new CodeEditorItem() { Name ="启动测试"},
-                new CodeEditorItem() { Name ="输入对输出高压测试"},
-                new CodeEditorItem() { Name ="输入对地高压测试"},
-                new CodeEditorItem() { Name ="输出对地高压测试"},
-                new CodeEditorItem() { Name ="小负载测试"},
-                new CodeEditorItem() { Name ="大负载测试"},
-                new CodeEditorItem() { Name ="短路&恢复测试"},
-                new CodeEditorItem() { Name ="153P调光测试"},
-                new CodeEditorItem() { Name ="300P调光测试"},
-                new CodeEditorItem() { Name ="变压器放电"},
-                new CodeEditorItem() { Name ="结束测试"},
-
-            };
-
         }
 
         public void InitializeRecord(ref TestingRecord record)

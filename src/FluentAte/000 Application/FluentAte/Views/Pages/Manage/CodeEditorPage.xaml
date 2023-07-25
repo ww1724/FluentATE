@@ -7,19 +7,17 @@
       d:DataContext="{d:DesignInstance Type=local:CodeEditorPage}"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:hc="https://handyorg.github.io/handycontrol"
-      xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
-      xmlns:markup="clr-namespace:WpfExtensions.Xaml.Markup;assembly=WpfExtensions.Xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CodeEditor">
 
     <Page.Resources>
-        <conv:BoolToVisibilityConverter x:Key="IsShowGreenConverter"  FalseValue="Collapsed"/>
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui;component/Styles/Controls/ListViewItem.xaml"/>
     </Page.Resources>
 
     <Grid Margin="20 0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition />
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
@@ -29,42 +27,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <ui:Card Margin="12 12 12 0">
-                <Grid>
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" >
-                        <TextBlock Text="&#xe6aa;" FontFamily="{StaticResource IconFontFamily}" VerticalAlignment="Center" FontSize="18" Margin="5 0"/>
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="程序编辑" FontWeight="Bold"  FontSize="18" />
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <hc:ElementGroup Margin="5 0">
-                            <Button Command="{Binding ViewModel.MoveItemsUpCommand}" >
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="&#xe83d;" FontFamily="{StaticResource IconFontFamily}" VerticalAlignment="Center"  />
-                                    <TextBlock Text="上移" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                                </StackPanel>
-                            </Button>
-                            <Button Command="{Binding ViewModel.MoveItemsDownCommand}">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="&#xe86c;" FontFamily="{StaticResource IconFontFamily}" VerticalAlignment="Center"  />
-                                    <TextBlock Text="下移" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                                </StackPanel>
-                            </Button>
-                        </hc:ElementGroup>
-                        <hc:ButtonGroup>
-                            <Button Content="展开全部" Command="{Binding ViewModel.ExpandAllCommand}"/>
-                            <Button Content="收缩全部" Command="{Binding ViewModel.ShrinkAllCommand}"/>
-                            <!--<Button Content="选择全部" Command="{Binding ViewModel.SelectAllCommand}"/>-->
-                            <Button Content="取消选择" Command="{Binding ViewModel.UnSelectAllCommand}"/>
-                        </hc:ButtonGroup>
-                    </StackPanel>
-                </Grid>
-            </ui:Card>
-            <ListView x:Name="CodeStepListView" 
-                      Grid.Row="1" Background="Transparent" BorderThickness="0" Grid.Column="0" 
-                      ItemsSource="{Binding ViewModel.TestStore.EditorItems}"
-                      SelectedItem="{Binding ViewModel.SelectedItem}"
-                      AlternationCount="1000" AllowDrop="True">
+            <ui:TextBlock Grid.Row="0" Grid.Column="0" Text="程序编辑" FontWeight="Medium" Margin="0 15" FontTypography="Subtitle" />
+            <ListView x:Name="CodeStepListView" Grid.Row="1" Background="Transparent" BorderThickness="0" Grid.Column="0" ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="1000" AllowDrop="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="0 -5" BorderBrush="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=BorderBrush}"  
@@ -78,37 +42,25 @@
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Left" 
                                            FontWeight="Bold" />
-                                            <CheckBox IsChecked="{Binding IsChecked}" Margin="15 0 0 0"/>
-
-                                            <Grid>
-                                                <Ellipse Fill="#FC7267" Width="15" Height="15" Margin="8 0"/>
-                                                <Ellipse Visibility="{Binding IsChecked, Converter={StaticResource IsShowGreenConverter}}" Fill="#228C80" Width="15" Height="15" Margin="8 0"/>
-                                            </Grid>
-
-                                            
-                                            <ui:TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="4 0"/>
+                                            <CheckBox IsChecked="{Binding IsToTest}" Margin="15 0 0 0"/>
+                                            <Ellipse Fill="#FC7267" Width="15" Height="15" Margin="8 0"/>
+                                            <ui:TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="4 0"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-                                            
+
                                         </StackPanel>
                                     </Grid>
-                                    
-
                                 </ui:CardExpander.Header>
-
-                                <Grid>
-                                    <hc:PropertyGrid SelectedObject="{Binding}" />
-                                </Grid>
                             </ui:CardExpander>
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
-                        <!--<EventSetter Event="PreviewMouseDown" Handler="ListViewItem_MouseDown"/>
+                        <EventSetter Event="PreviewMouseDown" Handler="ListViewItem_MouseDown"/>
                         <EventSetter Event="PreviewDragOver" Handler="ListViewItem_PreviewDragOver"/>
-                        <EventSetter Event="PreviewDrop" Handler="ListViewItem_PreviewDrop"/>-->
+                        <EventSetter Event="PreviewDrop" Handler="ListViewItem_PreviewDrop"/>
                         <Setter Property="BorderThickness" Value="0 2 0 0" />
                     </Style>
                 </ListView.ItemContainerStyle>
@@ -117,11 +69,8 @@
 
 
         <Grid  Grid.Column="1" Grid.Row="0" Width="300">
-            <StackPanel>
-                <ui:Badge Content="命令列表"/>
-                <TreeView></TreeView>
-            </StackPanel>
-            <!--<hc:PropertyGrid SelectedObject="{Binding ViewModel.TestStore.Record.Steps}" />-->
+            <ui:Badge Content="命令列表"/>
+            <hc:PropertyGrid SelectedObject="{Binding ViewModel.TestStore.Record.Steps}" />
         </Grid>
     </Grid>
 </Page>

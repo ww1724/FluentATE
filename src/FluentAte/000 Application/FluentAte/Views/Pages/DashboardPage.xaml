@@ -4,7 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:FluentAte.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:zr="clr-namespace:ZR.Util.Wpf.Controls;assembly=ZR.Util.Wpf"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DataContext="{d:DesignInstance local:DashboardPage, IsDesignTimeCreatable=False}"
     d:DesignHeight="450"
     xmlns:hc="https://handyorg.github.io/handycontrol"
@@ -22,12 +22,12 @@
             </Grid.RowDefinitions>
 
             <Border Margin="0 0 0 10">
-                <zr:ExpandCard IsExpanded="False" >
-                    <zr:ExpandCard.Header>
+                <ui:CardExpander IsExpanded="False" >
+                    <ui:CardExpander.Header>
                         <Grid>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                 <TextBlock Text="&#xe672;" VerticalAlignment="Center" FontSize="22" FontFamily="{StaticResource IconFontFamily}" />
-                                <TextBlock Text="测试面板"  FontSize="22" Margin="10 0 10 0" />
+                                <TextBlock Text="测试面板" FontSize="22" Margin="10 0 10 0"/>
                                 <Button Height="32" Content="开始测试"  hc:IconElement.Geometry="{StaticResource NewGeometry}"  
                                 IsEnabled="{Binding ViewModel.TestStore.IsTesting, Converter={StaticResource ReverseBoolConverter}}"
                                 Command="{Binding ViewModel.TestStore.StartTestCommand}" />
@@ -73,21 +73,21 @@
                                 </hc:ElementGroup>
                             </StackPanel>
                         </Grid>
-                    </zr:ExpandCard.Header>
+                    </ui:CardExpander.Header>
                     <Border Background="{StaticResource SecondaryRegionBrush}" Padding="15" CornerRadius="0 0 8 8">
                         <Grid >
                             <TextBlock Text="123456" FontSize="32" />
                         </Grid>
                     </Border>
-                </zr:ExpandCard>
+                </ui:CardExpander>
             </Border>
            
             <Border Grid.Row="2" Margin="0 5">
                 <ListView SelectionChanged="ListView_SelectionChanged" Background="Transparent"  Padding="10" ScrollViewer.CanContentScroll="False"  ItemsSource="{Binding ViewModel.TestStore.Record.Steps}" AlternationCount="100">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <zr:ExpandCard Margin="0 -2" IsExpanded="{Binding IsExpand}">
-                                <zr:ExpandCard.Header>
+                            <ui:CardExpander Margin="0 -2" IsExpanded="{Binding IsExpand}" Style="{StaticResource DefaultUiCardExpanderStyle}">
+                                <ui:CardExpander.Header>
                                     <Grid>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                             <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=(ItemsControl.AlternationIndex)}" 
@@ -97,15 +97,15 @@
                                            FontWeight="Bold" />
                                             <CheckBox IsChecked="{Binding IsToTest}" Margin="15 0 0 0"/>
                                             <Ellipse Fill="#FC7267" Width="15" Height="15" Margin="8 0"/>
-                                            <TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="4 0"/>
+                                            <ui:TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="4 0"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
 
                                         </StackPanel>
                                     </Grid>
-                                </zr:ExpandCard.Header>
-                            </zr:ExpandCard>
+                                </ui:CardExpander.Header>
+                            </ui:CardExpander>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.ItemContainerStyle>
